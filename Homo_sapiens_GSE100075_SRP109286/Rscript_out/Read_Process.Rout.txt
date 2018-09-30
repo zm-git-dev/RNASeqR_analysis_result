@@ -1,0 +1,2855 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+[Previously saved workspace restored]
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+
+Welcome to RNASeqR
+> RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/human/human_result/', SAMtools.or.Rsamtools = 'SAMtools', num.parallel.threads = 16, Rsamtools.nCores = 1, Hisat2.Index.run = TRUE, Hisat2.Alignment.run = TRUE, Rsamtools.Bam.run = TRUE, StringTie.Assemble.run = TRUE, StringTie.Merge.Trans.run = TRUE, Gffcompare.Ref.Sample.run = TRUE, StringTie.Ballgown.run = TRUE, PreDECountTable.run = TRUE)
+************** Adding PATH to R environment ************
+
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/human/human_result/RNASeq_bin
+
+
+⚜♜♜♜ RNASeqReadProcess()' environment pre-check ...
+
+************** Checking Availability of Commands ************
+
+************** Adding PATH to R environment ************
+
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/human/human_result/RNASeq_bin:/work171/kuan-hao/human/human_result/RNASeq_bin
+
+
+●  Checking hisat2 command
+
+/work171/kuan-hao/human/human_result/RNASeq_bin/hisat2-align-s version 2.1.0
+64-bit
+Built on login-node03
+Wed Jun  7 15:53:42 EDT 2017
+Compiler: gcc version 4.8.2 (GCC) 
+Options: -O3 -m64 -msse2 -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+(✔) : 'hisat2' is installed
+
+
+●  Checking stringtie command
+
+1.3.4d
+(✔) : 'stringtie' is installed
+
+
+●  Checking gffcompare command
+
+gffcompare v0.10.4
+(✔) : 'gffcompare' is installed
+
+
+(✔) : RNASeqReadProcess() pre-check is valid
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/XXX.sam' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/XXX.bam' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Alignment :
+
+************** Hisat2 Alignment **************
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687509_1.fastq.gz -2 raw_fastq.gz/SRR5687509_2.fastq.gz -S raw_sam/SRR5687509.sam
+
+61325942 reads; of these:
+  61325942 (100.00%) were paired; of these:
+    3641313 (5.94%) aligned concordantly 0 times
+    53397553 (87.07%) aligned concordantly exactly 1 time
+    4287076 (6.99%) aligned concordantly >1 times
+    ----
+    3641313 pairs aligned concordantly 0 times; of these:
+      957577 (26.30%) aligned discordantly 1 time
+    ----
+    2683736 pairs aligned 0 times concordantly or discordantly; of these:
+      5367472 mates make up the pairs; of these:
+        2800215 (52.17%) aligned 0 times
+        2010294 (37.45%) aligned exactly 1 time
+        556963 (10.38%) aligned >1 times
+97.72% overall alignment rate
+
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687510_1.fastq.gz -2 raw_fastq.gz/SRR5687510_2.fastq.gz -S raw_sam/SRR5687510.sam
+
+63208580 reads; of these:
+  63208580 (100.00%) were paired; of these:
+    3567141 (5.64%) aligned concordantly 0 times
+    55642454 (88.03%) aligned concordantly exactly 1 time
+    3998985 (6.33%) aligned concordantly >1 times
+    ----
+    3567141 pairs aligned concordantly 0 times; of these:
+      869581 (24.38%) aligned discordantly 1 time
+    ----
+    2697560 pairs aligned 0 times concordantly or discordantly; of these:
+      5395120 mates make up the pairs; of these:
+        2733910 (50.67%) aligned 0 times
+        2098876 (38.90%) aligned exactly 1 time
+        562334 (10.42%) aligned >1 times
+97.84% overall alignment rate
+
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687511_1.fastq.gz -2 raw_fastq.gz/SRR5687511_2.fastq.gz -S raw_sam/SRR5687511.sam
+
+67656346 reads; of these:
+  67656346 (100.00%) were paired; of these:
+    3784690 (5.59%) aligned concordantly 0 times
+    59177796 (87.47%) aligned concordantly exactly 1 time
+    4693860 (6.94%) aligned concordantly >1 times
+    ----
+    3784690 pairs aligned concordantly 0 times; of these:
+      899627 (23.77%) aligned discordantly 1 time
+    ----
+    2885063 pairs aligned 0 times concordantly or discordantly; of these:
+      5770126 mates make up the pairs; of these:
+        2953373 (51.18%) aligned 0 times
+        2235041 (38.73%) aligned exactly 1 time
+        581712 (10.08%) aligned >1 times
+97.82% overall alignment rate
+
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687512_1.fastq.gz -2 raw_fastq.gz/SRR5687512_2.fastq.gz -S raw_sam/SRR5687512.sam
+
+84790861 reads; of these:
+  84790861 (100.00%) were paired; of these:
+    5825788 (6.87%) aligned concordantly 0 times
+    71998516 (84.91%) aligned concordantly exactly 1 time
+    6966557 (8.22%) aligned concordantly >1 times
+    ----
+    5825788 pairs aligned concordantly 0 times; of these:
+      1174460 (20.16%) aligned discordantly 1 time
+    ----
+    4651328 pairs aligned 0 times concordantly or discordantly; of these:
+      9302656 mates make up the pairs; of these:
+        4874200 (52.40%) aligned 0 times
+        3468127 (37.28%) aligned exactly 1 time
+        960329 (10.32%) aligned >1 times
+97.13% overall alignment rate
+
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687513_1.fastq.gz -2 raw_fastq.gz/SRR5687513_2.fastq.gz -S raw_sam/SRR5687513.sam
+
+80592924 reads; of these:
+  80592924 (100.00%) were paired; of these:
+    5474971 (6.79%) aligned concordantly 0 times
+    69235326 (85.91%) aligned concordantly exactly 1 time
+    5882627 (7.30%) aligned concordantly >1 times
+    ----
+    5474971 pairs aligned concordantly 0 times; of these:
+      1086152 (19.84%) aligned discordantly 1 time
+    ----
+    4388819 pairs aligned 0 times concordantly or discordantly; of these:
+      8777638 mates make up the pairs; of these:
+        4582838 (52.21%) aligned 0 times
+        3319501 (37.82%) aligned exactly 1 time
+        875299 (9.97%) aligned >1 times
+97.16% overall alignment rate
+
+
+Input command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687514_1.fastq.gz -2 raw_fastq.gz/SRR5687514_2.fastq.gz -S raw_sam/SRR5687514.sam
+
+74424952 reads; of these:
+  74424952 (100.00%) were paired; of these:
+    5041743 (6.77%) aligned concordantly 0 times
+    63788324 (85.71%) aligned concordantly exactly 1 time
+    5594885 (7.52%) aligned concordantly >1 times
+    ----
+    5041743 pairs aligned concordantly 0 times; of these:
+      999409 (19.82%) aligned discordantly 1 time
+    ----
+    4042334 pairs aligned 0 times concordantly or discordantly; of these:
+      8084668 mates make up the pairs; of these:
+        3877424 (47.96%) aligned 0 times
+        3310325 (40.95%) aligned exactly 1 time
+        896919 (11.09%) aligned >1 times
+97.40% overall alignment rate
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/XXX.bam' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ 'SAM' to 'BAM' :
+
+************** Rsamtools converting '.sam' to '.bam' **************
+
+●  Checking samtools command
+
+samtools 1.4-22-g0aa9fab
+Using htslib 1.4-35-gae4f3df
+Copyright (C) 2017 Genome Research Ltd.
+(✔) : 'samtools' is installed
+
+
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam
+
+[bam_sort_core] merging from 64 files...
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam
+
+[bam_sort_core] merging from 64 files...
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam
+
+[bam_sort_core] merging from 80 files...
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam
+
+[bam_sort_core] merging from 96 files...
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam
+
+[bam_sort_core] merging from 80 files...
+
+
+Input command :samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam
+
+[bam_sort_core] merging from 80 files...
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Assembly :
+
+************** Stringtie assembly **************
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687509.gtf -l SRR5687509 raw_bam/SRR5687509.bam
+
+
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687510.gtf -l SRR5687510 raw_bam/SRR5687510.bam
+
+
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687511.gtf -l SRR5687511 raw_bam/SRR5687511.bam
+
+
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687512.gtf -l SRR5687512 raw_bam/SRR5687512.bam
+
+
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687513.gtf -l SRR5687513 raw_bam/SRR5687513.bam
+
+
+
+Input command :stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687514.gtf -l SRR5687514 raw_bam/SRR5687514.bam
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687509.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687510.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687511.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687512.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687513.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687514.gtf' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Transcript Merging :
+
+************** Stringtie merging transcripts **************
+
+Input command :stringtie --merge -p 16 -G ref_genes/homo_sapiens.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687509.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687510.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687511.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687512.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687513.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687514.gtf' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Merged `GTF` & Reference Comparison :
+
+************** Gffcompare comparing transcripts between merged and reference **************
+
+Input command : gffcompare -r ref_genes/homo_sapiens.gtf -G -o merged/merged merged/stringtie_merged.gtf
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687509.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687510.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687511.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687512.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687513.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687514.gtf' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.annotated.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.loci' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stats' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stringtie_merged.gtf.refmap' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stringtie_merged.gtf.tmap' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.tracking' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Ballgown Table count Creation :
+
+************** Stringtie creating table count for Ballgown **************
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687509/SRR5687509.gtf -A gene_abundance/SRR5687509/SRR5687509.tsv raw_bam/SRR5687509.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC101929983" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1B" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1C" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "TRIM53AP" (on chr11) has reference transcripts on both strands?
+Warning: gene "DUXAP10" (on chr14) has reference transcripts on both strands?
+Warning: gene "LINC01296" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P18" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P17" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr14) has reference transcripts on both strands?
+Warning: gene "GOLGA8CP" (on chr15) has reference transcripts on both strands?
+Warning: gene "GOLGA6L4" (on chr15) has reference transcripts on both strands?
+Warning: gene "LOC642423" (on chr15) has reference transcripts on both strands?
+Warning: gene "DNM1P41" (on chr15) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "LOC646743" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "LINC00319" (on chr21) has reference transcripts on both strands?
+Warning: gene "LINC00313" (on chr21) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "LOC100287834" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-1" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-2" (on chr7) has reference transcripts on both strands?
+Warning: gene "PRR23D2" (on chr8) has reference transcripts on both strands?
+Warning: gene "PRR23D1" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB107A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB107B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103B" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC554249" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102724238" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "AQP7P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "GXYLT1P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102723709" (on chr9) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11D" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1A1" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "LOC101929148" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P2Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P3Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687510/SRR5687510.gtf -A gene_abundance/SRR5687510/SRR5687510.tsv raw_bam/SRR5687510.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC101929983" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "TRIM53AP" (on chr11) has reference transcripts on both strands?
+Warning: gene "DUXAP10" (on chr14) has reference transcripts on both strands?
+Warning: gene "LINC01296" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P18" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P17" (on chr14) has reference transcripts on both strands?
+Warning: gene "LOC646743" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "LINC00319" (on chr21) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "LOC100287834" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-1" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-2" (on chr7) has reference transcripts on both strands?
+Warning: gene "DEFB105B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103B" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC554249" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102724238" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102723709" (on chr9) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11D" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "DMRTC1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "DMRTC1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1A1" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "LOC101929148" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P2Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P3Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687511/SRR5687511.gtf -A gene_abundance/SRR5687511/SRR5687511.tsv raw_bam/SRR5687511.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC101929983" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1B" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1C" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "TRIM53AP" (on chr11) has reference transcripts on both strands?
+Warning: gene "DUXAP10" (on chr14) has reference transcripts on both strands?
+Warning: gene "LINC01296" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P18" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P17" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr14) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "LINC00319" (on chr21) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "LOC100287834" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-1" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-2" (on chr7) has reference transcripts on both strands?
+Warning: gene "DEFB107A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB107B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103B" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "AQP7P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "GXYLT1P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11D" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1A1" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "LOC101929148" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P2Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P3Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687512/SRR5687512.gtf -A gene_abundance/SRR5687512/SRR5687512.tsv raw_bam/SRR5687512.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC101929983" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1B" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1C" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "LOC646743" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "LINC00319" (on chr21) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "LOC100287834" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-1" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-2" (on chr7) has reference transcripts on both strands?
+Warning: gene "DEFB107A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB107B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103B" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC554249" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102724238" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "CBWD5" (on chr9) has reference transcripts on both strands?
+Warning: gene "AQP7P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "NXF2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P2Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P3Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CSPG4P1Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687513/SRR5687513.gtf -A gene_abundance/SRR5687513/SRR5687513.tsv raw_bam/SRR5687513.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC101929983" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1C" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1B" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "TRIM53AP" (on chr11) has reference transcripts on both strands?
+Warning: gene "DUXAP10" (on chr14) has reference transcripts on both strands?
+Warning: gene "LINC01296" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P18" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P17" (on chr14) has reference transcripts on both strands?
+Warning: gene "GOLGA8CP" (on chr15) has reference transcripts on both strands?
+Warning: gene "LOC642423" (on chr15) has reference transcripts on both strands?
+Warning: gene "DNM1P41" (on chr15) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "DEFB105B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB104A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB103B" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC554249" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102724238" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102723709" (on chr9) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11D" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11E" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SSX2B" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY21B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1A1" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "LOC101929148" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P2Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "GOLGA2P3Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CSPG4P1Y" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+Input command :stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687514/SRR5687514.gtf -A gene_abundance/SRR5687514/SRR5687514.tsv raw_bam/SRR5687514.bam
+
+Warning: gene "LOC645354" (on chr1) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL4" (on chr1) has reference transcripts on both strands?
+Warning: gene "HNRNPCL3" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1A" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1B" (on chr1) has reference transcripts on both strands?
+Warning: gene "AMY1C" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr1) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr1) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11) has reference transcripts on both strands?
+Warning: gene "TRIM53AP" (on chr11) has reference transcripts on both strands?
+Warning: gene "DUXAP10" (on chr14) has reference transcripts on both strands?
+Warning: gene "LINC01296" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P18" (on chr14) has reference transcripts on both strands?
+Warning: gene "BMS1P17" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNVU1-18" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-28P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-3" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-4" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-27P" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-2" (on chr14) has reference transcripts on both strands?
+Warning: gene "RNU1-1" (on chr14) has reference transcripts on both strands?
+Warning: gene "GOLGA8CP" (on chr15) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3B" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "TP53TG3C" (on chr16) has reference transcripts on both strands?
+Warning: gene "LOC646743" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "TISP43" (on chr2) has reference transcripts on both strands?
+Warning: gene "CFC1B" (on chr2) has reference transcripts on both strands?
+Warning: gene "LINC00319" (on chr21) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chr5) has reference transcripts on both strands?
+Warning: gene "LOC100287834" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-1" (on chr7) has reference transcripts on both strands?
+Warning: gene "MIR4283-2" (on chr7) has reference transcripts on both strands?
+Warning: gene "TCAF2P1" (on chr7) has reference transcripts on both strands?
+Warning: gene "DEFB107A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB107B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB105A" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106B" (on chr8) has reference transcripts on both strands?
+Warning: gene "DEFB106A" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "REXO1L2P" (on chr8) has reference transcripts on both strands?
+Warning: gene "LOC554249" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC102724238" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC103908605" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477A" (on chr9) has reference transcripts on both strands?
+Warning: gene "MIR4477B" (on chr9) has reference transcripts on both strands?
+Warning: gene "LOC101928381" (on chr9) has reference transcripts on both strands?
+Warning: gene "AQP7P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "GXYLT1P3" (on chr9) has reference transcripts on both strands?
+Warning: gene "FAM95B1" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A3" (on chr9) has reference transcripts on both strands?
+Warning: gene "ANKRD20A2" (on chr9) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MAGED4B" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11D" (on chrX) has reference transcripts on both strands?
+Warning: gene "SNORA11E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1B" (on chrX) has reference transcripts on both strands?
+Warning: gene "XAGE1E" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100132304" (on chrX) has reference transcripts on both strands?
+Warning: gene "LINC00684" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226B" (on chrX) has reference transcripts on both strands?
+Warning: gene "FAM226A" (on chrX) has reference transcripts on both strands?
+Warning: gene "PABPC1L2B-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2BFXP" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC100101478" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMSB15B" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR4454" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA1" (on chrX) has reference transcripts on both strands?
+Warning: gene "SPANXA2" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51A" (on chrX) has reference transcripts on both strands?
+Warning: gene "CXorf51B" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A1" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A2" (on chrX) has reference transcripts on both strands?
+Warning: gene "F8A3" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-1" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-2" (on chrX) has reference transcripts on both strands?
+Warning: gene "MIR1184-3" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB2" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB1" (on chrX) has reference transcripts on both strands?
+Warning: gene "H2AFB3" (on chrX) has reference transcripts on both strands?
+Warning: gene "TMLHE-AS1" (on chrX) has reference transcripts on both strands?
+Warning: gene "LOC101927830" (on chrX) has reference transcripts on both strands?
+Warning: gene "TTTY8" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY8B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY7B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY23B" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY" (on chrY) has reference transcripts on both strands?
+Warning: gene "VCY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2A" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "XKRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224A" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM224B" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "FAM41AY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY9B" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "HSFY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1A1" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1E" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1D" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1F" (on chrY) has reference transcripts on both strands?
+Warning: gene "RBMY1J" (on chrY) has reference transcripts on both strands?
+Warning: gene "LOC101929148" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY6" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "PRY" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ3" (on chrY) has reference transcripts on both strands?
+Warning: gene "DAZ4" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2B" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2C" (on chrY) has reference transcripts on both strands?
+Warning: gene "BPY2" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY4B" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17A" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17C" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY17B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1B" (on chrY) has reference transcripts on both strands?
+Warning: gene "CDY1" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3" (on chrY) has reference transcripts on both strands?
+Warning: gene "TTTY3B" (on chrY) has reference transcripts on both strands?
+Warning: gene "KRTAP5-5" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270830v1_alt) has reference transcripts on both strands?
+Warning: gene "FAM99B" (on chr11_KI270903v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_GL383554v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC727751" (on chr15_KI270850v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-1" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-2" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR4509-3" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8G" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8F" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8IP" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8J" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "GOLGA8H" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288637" (on chr15_KI270905v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "PDXDC1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR1972-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "NPIPA2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3179-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3670-4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR3180-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC100288162" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6770-3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A1" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A2" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A3" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MIR6511A4" (on chr16_KI270853v1_alt) has reference transcripts on both strands?
+Warning: gene "MGC57346" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17A" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "ARL17B" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "NSFP1" (on chr17_GL000258v2_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3K" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3C" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3L" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3F" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3H" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3I" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060389" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "TBC1D3E" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC101060321" (on chr17_KI270857v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC645354" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "LOC649324" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF26" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "PRAMEF25" (on chr1_KI270766v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "GSTT2B" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "DDT" (on chr22_KI270879v1_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "UGT2B10" (on chr4_GL000257v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP9" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2B" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "GTF2H2C_2" (on chr5_GL339449v2_alt) has reference transcripts on both strands?
+Warning: gene "SMA4" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+Warning: gene "GUSBP3" (on chr5_KI270897v1_alt) has reference transcripts on both strands?
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/human/human_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/human/human_result/gene_data/ref_genes/homo_sapiens.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ref_genome/homo_sapiens.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/indices/homo_sapiens_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687509.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687510.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687511.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687512.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687513.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/raw_gtf/SRR5687514.gtf' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.annotated.gtf' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.loci' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stats' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stringtie_merged.gtf.refmap' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.stringtie_merged.gtf.tmap' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/merged/merged.tracking' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687509' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687510' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687511' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687512' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687513' is exit
+
+(✔) : '/work171/kuan-hao/human/human_result/gene_data/ballgown/SRR5687514' is exit
+
+Total: 6 directories
+
+
+
+☘☘☘ Raw Reads Count Creation :
+
+************** Installing prepDE.py ************
+
+/work171/kuan-hao/human/human_result/gene_data/reads_count_matrix
+
+嘗試 URL 'https://ccb.jhu.edu/software/stringtie/dl/prepDE.py'
+Content type 'text/plain; charset=UTF-8' length 11095 bytes (10 KB)
+==================================================
+downloaded 10 KB
+
+Using R function : 'download.file()' is called. 
+
+'/work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/prepDE.py' has been installed.
+
+
+************** Creating 'sample_lst.txt' file ************
+
+'/work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/sample_lst.txt' has been created
+
+
+************** Creating gene and transcript raw count file ************
+
+(✔) : Python is available on your device!
+
+       Python version : 2.7
+
+
+(✔) : Creating gene and transcript raw count files now !
+
+Input command :python /work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/sample_lst.txt
+
+
+0 SRR5687509
+1 SRR5687510
+2 SRR5687511
+3 SRR5687512
+4 SRR5687513
+5 SRR5687514
+'/work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/gene_count_matrix.csv' has been created
+
+'/work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/transcript_count_matrix.csv' has been created
+
+
+⚜♜♜♜ RNASeqReadProcess()' environment post-check ...
+
+(✔) : RNASeqReadProcess() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+> 
+> proc.time()
+     user    system   elapsed 
+146644.18  70768.67  38600.98 
