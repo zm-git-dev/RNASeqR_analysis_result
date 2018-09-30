@@ -1,9 +1,6 @@
 # *Saccharomyces cerevisiae* 
 
-GSE80357
-SRP073391
-
-&#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/)
+&#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
 
 &#128441; [**Environment_Set.R**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/Rscript/Environment_Set.R.txt)
 
