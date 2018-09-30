@@ -1,0 +1,2 @@
+library(RNASeqR)
+RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/', SAMtools.or.Rsamtools = 'Rsamtools', num.parallel.threads = 1, Rsamtools.nCores = 1, Hisat2.Index.run = FALSE, Hisat2.Alignment.run = FALSE, Rsamtools.Bam.run = FALSE, StringTie.Assemble.run = FALSE, StringTie.Merge.Trans.run = FALSE, Gffcompare.Ref.Sample.run = FALSE, StringTie.Ballgown.run = FALSE, PreDECountTable.run = TRUE)

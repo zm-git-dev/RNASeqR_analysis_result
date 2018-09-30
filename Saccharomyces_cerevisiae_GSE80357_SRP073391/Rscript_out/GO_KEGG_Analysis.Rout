@@ -1,0 +1,828 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+[Previously saved workspace restored]
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+
+Welcome to RNASeqR
+> RNASeqGoKegg(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/', OrgDb.species = 'org.Sc.sgd.db', go.level = 3, input.TYPE.ID = 'GENENAME', KEGG.organism = 'sce')
+⚜♜♜♜ RNASeqGoKegg()' environment pre-check ...
+
+(✔) : RNASeqGoKegg() pre-check is valid
+
+
+☘☘☘☘☘☘☘☘  Start 'Gene Ontology', 'Kyoto Encyclopedia of Genes and Genomes' analyses  ☘☘☘☘☘☘☘☘
+
+☘☘ ballgown analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+Loading required package: org.Sc.sgd.db
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 180
+
+     Found ENTREZID gene ID :
+              851574  851584  851605  851608  851656  851678  ...
+
+     ● GO Classification ... 
+
+Loading required package: DOSE
+DOSE v3.7.1  For help: https://guangchuangyu.github.io/DOSE
+
+If you use DOSE in published research, please cite:
+Guangchuang Yu, Li-Gen Wang, Guang-Rong Yan, Qing-Yu He. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. Bioinformatics 2015, 31(4):608-609
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 49
+
+               ● Writing 'GO_MF_Overrepresentation.csv' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 180
+
+     Found ENTREZID gene ID :
+              851574  851584  851605  851608  851656  851678  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 112
+
+               ● Writing 'GO_BP_Overrepresentation.csv' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 180
+
+     Found ENTREZID gene ID :
+              851574  851584  851605  851608  851656  851678  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 8
+
+               ● Writing 'GO_CC_Overrepresentation.csv' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 178
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : YAR015W  YBL039C  YBL054W  YBR040W  YBR043C  YBR045C  ...
+
+     ● (✔) KEGG over-representation test enriched term found! 21
+
+          ● Writing 'KEGG_Overrepresentation.csv' 
+
+          ● Finding 'sce01230' KEGG URL ... 
+
+               ● Writting 'URL_sce01230_Pathway.txt' 
+
+               ● Plotting 'sce01230' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01230, 1/1 pathways..
+Info: Downloading png files for sce01230, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Writing image file sce01230.pathview.png
+          ● Finding 'sce01110' KEGG URL ... 
+
+               ● Writting 'URL_sce01110_Pathway.txt' 
+
+               ● Plotting 'sce01110' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01110, 1/1 pathways..
+Info: Downloading png files for sce01110, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Writing image file sce01110.pathview.png
+          ● Finding 'sce01130' KEGG URL ... 
+
+               ● Writting 'URL_sce01130_Pathway.txt' 
+
+               ● Plotting 'sce01130' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01130, 1/1 pathways..
+Info: Downloading png files for sce01130, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Writing image file sce01130.pathview.png
+          ● Finding 'sce00220' KEGG URL ... 
+
+               ● Writting 'URL_sce00220_Pathway.txt' 
+
+               ● Plotting 'sce00220' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00220, 1/1 pathways..
+Info: Downloading png files for sce00220, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Writing image file sce00220.pathview.png
+          ● Finding 'sce00400' KEGG URL ... 
+
+               ● Writting 'URL_sce00400_Pathway.txt' 
+
+               ● Plotting 'sce00400' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00400, 1/1 pathways..
+Info: Downloading png files for sce00400, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Writing image file sce00400.pathview.png
+          ● Finding 'sce01210' KEGG URL ... 
+
+               ● Writting 'URL_sce01210_Pathway.txt' 
+
+               ● Plotting 'sce01210' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01210, 1/1 pathways..
+Info: Downloading png files for sce01210, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
+Info: Writing image file sce01210.pathview.png
+          ● Finding 'sce00300' KEGG URL ... 
+
+               ● Writting 'URL_sce00300_Pathway.txt' 
+
+               ● Plotting 'sce00300' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00300, 1/1 pathways..
+Info: Downloading png files for sce00300, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
+Info: Writing image file sce00300.pathview.png
+          ● Finding 'sce00270' KEGG URL ... 
+
+               ● Writting 'URL_sce00270_Pathway.txt' 
+
+               ● Plotting 'sce00270' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00270, 1/1 pathways..
+Info: Downloading png files for sce00270, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
+Info: Writing image file sce00270.pathview.png
+          ● Finding 'sce00250' KEGG URL ... 
+
+               ● Writting 'URL_sce00250_Pathway.txt' 
+
+               ● Plotting 'sce00250' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00250, 1/1 pathways..
+Info: Downloading png files for sce00250, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
+Info: Writing image file sce00250.pathview.png
+          ● Finding 'sce00290' KEGG URL ... 
+
+               ● Writting 'URL_sce00290_Pathway.txt' 
+
+               ● Plotting 'sce00290' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00290, 1/1 pathways..
+Info: Downloading png files for sce00290, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
+Info: Writing image file sce00290.pathview.png
+===============================================================
+===============================================================
+
+
+☘☘ DESeq2 analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 192
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 48
+
+               ● Writing 'GO_MF_Overrepresentation.csv' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 192
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 108
+
+               ● Writing 'GO_BP_Overrepresentation.csv' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 192
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 14
+
+               ● Writing 'GO_CC_Overrepresentation.csv' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:many mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 196
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : YAL068C  YAL068C  YAL068C  YAR015W  YBL039C  YBL054W  ...
+
+     ● (✔) KEGG over-representation test enriched term found! 19
+
+          ● Writing 'KEGG_Overrepresentation.csv' 
+
+          ● Finding 'sce01230' KEGG URL ... 
+
+               ● Writting 'URL_sce01230_Pathway.txt' 
+
+               ● Plotting 'sce01230' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01230, 1/1 pathways..
+Info: Downloading png files for sce01230, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Writing image file sce01230.pathview.png
+          ● Finding 'sce01110' KEGG URL ... 
+
+               ● Writting 'URL_sce01110_Pathway.txt' 
+
+               ● Plotting 'sce01110' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01110, 1/1 pathways..
+Info: Downloading png files for sce01110, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Writing image file sce01110.pathview.png
+          ● Finding 'sce01130' KEGG URL ... 
+
+               ● Writting 'URL_sce01130_Pathway.txt' 
+
+               ● Plotting 'sce01130' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01130, 1/1 pathways..
+Info: Downloading png files for sce01130, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Writing image file sce01130.pathview.png
+          ● Finding 'sce00220' KEGG URL ... 
+
+               ● Writting 'URL_sce00220_Pathway.txt' 
+
+               ● Plotting 'sce00220' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00220, 1/1 pathways..
+Info: Downloading png files for sce00220, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Writing image file sce00220.pathview.png
+          ● Finding 'sce00400' KEGG URL ... 
+
+               ● Writting 'URL_sce00400_Pathway.txt' 
+
+               ● Plotting 'sce00400' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00400, 1/1 pathways..
+Info: Downloading png files for sce00400, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Writing image file sce00400.pathview.png
+          ● Finding 'sce01210' KEGG URL ... 
+
+               ● Writting 'URL_sce01210_Pathway.txt' 
+
+               ● Plotting 'sce01210' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01210, 1/1 pathways..
+Info: Downloading png files for sce01210, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
+Info: Writing image file sce01210.pathview.png
+          ● Finding 'sce00300' KEGG URL ... 
+
+               ● Writting 'URL_sce00300_Pathway.txt' 
+
+               ● Plotting 'sce00300' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00300, 1/1 pathways..
+Info: Downloading png files for sce00300, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
+Info: Writing image file sce00300.pathview.png
+          ● Finding 'sce00270' KEGG URL ... 
+
+               ● Writting 'URL_sce00270_Pathway.txt' 
+
+               ● Plotting 'sce00270' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00270, 1/1 pathways..
+Info: Downloading png files for sce00270, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
+Info: Writing image file sce00270.pathview.png
+          ● Finding 'sce00250' KEGG URL ... 
+
+               ● Writting 'URL_sce00250_Pathway.txt' 
+
+               ● Plotting 'sce00250' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00250, 1/1 pathways..
+Info: Downloading png files for sce00250, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
+Info: Writing image file sce00250.pathview.png
+          ● Finding 'sce00290' KEGG URL ... 
+
+               ● Writting 'URL_sce00290_Pathway.txt' 
+
+               ● Plotting 'sce00290' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00290, 1/1 pathways..
+Info: Downloading png files for sce00290, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
+Info: Writing image file sce00290.pathview.png
+===============================================================
+===============================================================
+
+
+☘☘ edgeR analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 194
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 48
+
+               ● Writing 'GO_MF_Overrepresentation.csv' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_MF_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 194
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 118
+
+               ● Writing 'GO_BP_Overrepresentation.csv' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_BP_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 194
+
+     Found ENTREZID gene ID :
+              851384  852226  854711  854714  852076  853357  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 13
+
+               ● Writing 'GO_CC_Overrepresentation.csv' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Bar_Plot_clusterProfiler.png' 
+
+               ● Plotting 'GO_CC_Overrepresentation_Dot_Plot_clusterProfiler.png' 
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:many mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 196
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : YAL018C  YAL068C  YAL068C  YAL068C  YAR015W  YBL039C  ...
+
+     ● (✔) KEGG over-representation test enriched term found! 19
+
+          ● Writing 'KEGG_Overrepresentation.csv' 
+
+          ● Finding 'sce01230' KEGG URL ... 
+
+               ● Writting 'URL_sce01230_Pathway.txt' 
+
+               ● Plotting 'sce01230' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01230, 1/1 pathways..
+Info: Downloading png files for sce01230, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Writing image file sce01230.pathview.png
+          ● Finding 'sce01110' KEGG URL ... 
+
+               ● Writting 'URL_sce01110_Pathway.txt' 
+
+               ● Plotting 'sce01110' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01110, 1/1 pathways..
+Info: Downloading png files for sce01110, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Writing image file sce01110.pathview.png
+          ● Finding 'sce01130' KEGG URL ... 
+
+               ● Writting 'URL_sce01130_Pathway.txt' 
+
+               ● Plotting 'sce01130' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01130, 1/1 pathways..
+Info: Downloading png files for sce01130, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Writing image file sce01130.pathview.png
+          ● Finding 'sce00220' KEGG URL ... 
+
+               ● Writting 'URL_sce00220_Pathway.txt' 
+
+               ● Plotting 'sce00220' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00220, 1/1 pathways..
+Info: Downloading png files for sce00220, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Writing image file sce00220.pathview.png
+          ● Finding 'sce00400' KEGG URL ... 
+
+               ● Writting 'URL_sce00400_Pathway.txt' 
+
+               ● Plotting 'sce00400' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00400, 1/1 pathways..
+Info: Downloading png files for sce00400, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Writing image file sce00400.pathview.png
+          ● Finding 'sce01210' KEGG URL ... 
+
+               ● Writting 'URL_sce01210_Pathway.txt' 
+
+               ● Plotting 'sce01210' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce01210, 1/1 pathways..
+Info: Downloading png files for sce01210, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
+Info: Writing image file sce01210.pathview.png
+          ● Finding 'sce00300' KEGG URL ... 
+
+               ● Writting 'URL_sce00300_Pathway.txt' 
+
+               ● Plotting 'sce00300' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00300, 1/1 pathways..
+Info: Downloading png files for sce00300, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
+Info: Writing image file sce00300.pathview.png
+          ● Finding 'sce00270' KEGG URL ... 
+
+               ● Writting 'URL_sce00270_Pathway.txt' 
+
+               ● Plotting 'sce00270' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00270, 1/1 pathways..
+Info: Downloading png files for sce00270, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
+Info: Writing image file sce00270.pathview.png
+          ● Finding 'sce00250' KEGG URL ... 
+
+               ● Writting 'URL_sce00250_Pathway.txt' 
+
+               ● Plotting 'sce00250' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00250, 1/1 pathways..
+Info: Downloading png files for sce00250, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
+Info: Writing image file sce00250.pathview.png
+          ● Finding 'sce00290' KEGG URL ... 
+
+               ● Writting 'URL_sce00290_Pathway.txt' 
+
+               ● Plotting 'sce00290' pathway by package "pathview" 
+
+Info: Getting gene ID data from KEGG...
+Info: Done with data retrieval!
+Info: Downloading xml files for sce00290, 1/1 pathways..
+Info: Downloading png files for sce00290, 1/1 pathways..
+Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
+Info: Writing image file sce00290.pathview.png
+===============================================================
+===============================================================
+
+
+⚜♜♜♜ RNASeqGoKegg()' environment post-check ...
+
+(✔) : RNASeqGoKegg() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+There were 50 or more warnings (use warnings() to see the first 50)
+> 
+> proc.time()
+    user   system  elapsed 
+3837.376  296.482 4185.724 

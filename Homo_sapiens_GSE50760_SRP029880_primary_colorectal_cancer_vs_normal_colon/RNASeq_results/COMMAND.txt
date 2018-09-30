@@ -1,0 +1,116 @@
+* Hisat2 Alignment : 
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975555_1.fastq.gz -2 raw_fastq.gz/SRR975555_2.fastq.gz -S raw_sam/SRR975555.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975556_1.fastq.gz -2 raw_fastq.gz/SRR975556_2.fastq.gz -S raw_sam/SRR975556.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975558_1.fastq.gz -2 raw_fastq.gz/SRR975558_2.fastq.gz -S raw_sam/SRR975558.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975559_1.fastq.gz -2 raw_fastq.gz/SRR975559_2.fastq.gz -S raw_sam/SRR975559.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975560_1.fastq.gz -2 raw_fastq.gz/SRR975560_2.fastq.gz -S raw_sam/SRR975560.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975562_1.fastq.gz -2 raw_fastq.gz/SRR975562_2.fastq.gz -S raw_sam/SRR975562.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975564_1.fastq.gz -2 raw_fastq.gz/SRR975564_2.fastq.gz -S raw_sam/SRR975564.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975565_1.fastq.gz -2 raw_fastq.gz/SRR975565_2.fastq.gz -S raw_sam/SRR975565.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975567_1.fastq.gz -2 raw_fastq.gz/SRR975567_2.fastq.gz -S raw_sam/SRR975567.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975568_1.fastq.gz -2 raw_fastq.gz/SRR975568_2.fastq.gz -S raw_sam/SRR975568.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975569_1.fastq.gz -2 raw_fastq.gz/SRR975569_2.fastq.gz -S raw_sam/SRR975569.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975572_1.fastq.gz -2 raw_fastq.gz/SRR975572_2.fastq.gz -S raw_sam/SRR975572.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975574_1.fastq.gz -2 raw_fastq.gz/SRR975574_2.fastq.gz -S raw_sam/SRR975574.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975575_1.fastq.gz -2 raw_fastq.gz/SRR975575_2.fastq.gz -S raw_sam/SRR975575.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975576_1.fastq.gz -2 raw_fastq.gz/SRR975576_2.fastq.gz -S raw_sam/SRR975576.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975577_1.fastq.gz -2 raw_fastq.gz/SRR975577_2.fastq.gz -S raw_sam/SRR975577.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975580_1.fastq.gz -2 raw_fastq.gz/SRR975580_2.fastq.gz -S raw_sam/SRR975580.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975582_1.fastq.gz -2 raw_fastq.gz/SRR975582_2.fastq.gz -S raw_sam/SRR975582.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975585_1.fastq.gz -2 raw_fastq.gz/SRR975585_2.fastq.gz -S raw_sam/SRR975585.sam
+    command : hisat2 -p 20 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR975586_1.fastq.gz -2 raw_fastq.gz/SRR975586_2.fastq.gz -S raw_sam/SRR975586.sam
+
+
+* Rsamtools Converting '.sam' to '.bam' : 
+     Running 'asBam' in Rsamtools in parallel:
+20
+
+
+
+
+* SAMtools Converting '.sam' to '.bam' : 
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975555.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975555.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975556.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975556.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975558.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975558.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975559.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975559.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975560.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975560.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975562.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975562.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975564.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975564.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975565.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975565.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975567.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975567.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975568.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975568.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975569.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975569.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975572.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975572.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975574.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975574.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975575.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975575.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975576.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975576.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975577.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975577.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975580.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975580.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975582.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975582.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975585.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975585.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_bam/SRR975586.bam /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/raw_sam/SRR975586.sam
+
+
+* Stringtie assembly : 
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975555.gtf -l SRR975555 raw_bam/SRR975555.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975556.gtf -l SRR975556 raw_bam/SRR975556.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975558.gtf -l SRR975558 raw_bam/SRR975558.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975559.gtf -l SRR975559 raw_bam/SRR975559.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975560.gtf -l SRR975560 raw_bam/SRR975560.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975562.gtf -l SRR975562 raw_bam/SRR975562.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975564.gtf -l SRR975564 raw_bam/SRR975564.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975565.gtf -l SRR975565 raw_bam/SRR975565.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975567.gtf -l SRR975567 raw_bam/SRR975567.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975568.gtf -l SRR975568 raw_bam/SRR975568.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975569.gtf -l SRR975569 raw_bam/SRR975569.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975572.gtf -l SRR975572 raw_bam/SRR975572.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975574.gtf -l SRR975574 raw_bam/SRR975574.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975575.gtf -l SRR975575 raw_bam/SRR975575.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975576.gtf -l SRR975576 raw_bam/SRR975576.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975577.gtf -l SRR975577 raw_bam/SRR975577.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975580.gtf -l SRR975580 raw_bam/SRR975580.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975582.gtf -l SRR975582 raw_bam/SRR975582.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975585.gtf -l SRR975585 raw_bam/SRR975585.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR975586.gtf -l SRR975586 raw_bam/SRR975586.bam
+
+
+* Stringtie Merging Transcripts : 
+    command : stringtie --merge -p 16 -G ref_genes/homo_sapiens.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
+
+
+* Gffcompare Comparing 
+Transcripts between Merged and Reference : 
+    command : gffcompare -r ref_genes/homo_sapiens.gtf -G -o merged/merged merged/stringtie_merged.gtf
+
+
+* Stringtie Creating Table count for Ballgown : 
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975555/SRR975555.gtf -A gene_abundance/SRR975555/SRR975555.tsv raw_bam/SRR975555.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975556/SRR975556.gtf -A gene_abundance/SRR975556/SRR975556.tsv raw_bam/SRR975556.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975558/SRR975558.gtf -A gene_abundance/SRR975558/SRR975558.tsv raw_bam/SRR975558.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975559/SRR975559.gtf -A gene_abundance/SRR975559/SRR975559.tsv raw_bam/SRR975559.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975560/SRR975560.gtf -A gene_abundance/SRR975560/SRR975560.tsv raw_bam/SRR975560.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975562/SRR975562.gtf -A gene_abundance/SRR975562/SRR975562.tsv raw_bam/SRR975562.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975564/SRR975564.gtf -A gene_abundance/SRR975564/SRR975564.tsv raw_bam/SRR975564.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975565/SRR975565.gtf -A gene_abundance/SRR975565/SRR975565.tsv raw_bam/SRR975565.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975567/SRR975567.gtf -A gene_abundance/SRR975567/SRR975567.tsv raw_bam/SRR975567.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975568/SRR975568.gtf -A gene_abundance/SRR975568/SRR975568.tsv raw_bam/SRR975568.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975569/SRR975569.gtf -A gene_abundance/SRR975569/SRR975569.tsv raw_bam/SRR975569.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975572/SRR975572.gtf -A gene_abundance/SRR975572/SRR975572.tsv raw_bam/SRR975572.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975574/SRR975574.gtf -A gene_abundance/SRR975574/SRR975574.tsv raw_bam/SRR975574.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975575/SRR975575.gtf -A gene_abundance/SRR975575/SRR975575.tsv raw_bam/SRR975575.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975576/SRR975576.gtf -A gene_abundance/SRR975576/SRR975576.tsv raw_bam/SRR975576.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975577/SRR975577.gtf -A gene_abundance/SRR975577/SRR975577.tsv raw_bam/SRR975577.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975580/SRR975580.gtf -A gene_abundance/SRR975580/SRR975580.tsv raw_bam/SRR975580.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975582/SRR975582.gtf -A gene_abundance/SRR975582/SRR975582.tsv raw_bam/SRR975582.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975585/SRR975585.gtf -A gene_abundance/SRR975585/SRR975585.tsv raw_bam/SRR975585.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR975586/SRR975586.gtf -A gene_abundance/SRR975586/SRR975586.tsv raw_bam/SRR975586.bam
+
+
+* Installing 'prepDE.py' : 
+    Using R function : 'download.file()' is called.
+
+
+* Creating Gene and Transcript Raw Count File : 
+    command : python /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/gene_data/reads_count_matrix/sample_lst.txt
+
+

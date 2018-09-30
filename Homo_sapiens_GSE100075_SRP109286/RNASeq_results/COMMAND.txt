@@ -1,0 +1,53 @@
+* Hisat2 Alignment : 
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687509_1.fastq.gz -2 raw_fastq.gz/SRR5687509_2.fastq.gz -S raw_sam/SRR5687509.sam
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687510_1.fastq.gz -2 raw_fastq.gz/SRR5687510_2.fastq.gz -S raw_sam/SRR5687510.sam
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687511_1.fastq.gz -2 raw_fastq.gz/SRR5687511_2.fastq.gz -S raw_sam/SRR5687511.sam
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687512_1.fastq.gz -2 raw_fastq.gz/SRR5687512_2.fastq.gz -S raw_sam/SRR5687512.sam
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687513_1.fastq.gz -2 raw_fastq.gz/SRR5687513_2.fastq.gz -S raw_sam/SRR5687513.sam
+    command : hisat2 -p 16 --dta -x indices/homo_sapiens_tran  -1 raw_fastq.gz/SRR5687514_1.fastq.gz -2 raw_fastq.gz/SRR5687514_2.fastq.gz -S raw_sam/SRR5687514.sam
+
+
+* SAMtools Converting '.sam' to '.bam' : 
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687509.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687509.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687510.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687510.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687511.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687511.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687512.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687512.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687513.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687513.sam
+    command : samtools sort -@ 16 -o /work171/kuan-hao/human/human_result/gene_data/raw_bam/SRR5687514.bam /work171/kuan-hao/human/human_result/gene_data/raw_sam/SRR5687514.sam
+
+
+* Stringtie assembly : 
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687509.gtf -l SRR5687509 raw_bam/SRR5687509.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687510.gtf -l SRR5687510 raw_bam/SRR5687510.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687511.gtf -l SRR5687511 raw_bam/SRR5687511.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687512.gtf -l SRR5687512 raw_bam/SRR5687512.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687513.gtf -l SRR5687513 raw_bam/SRR5687513.bam
+    command : stringtie -p 16 -G ref_genes/homo_sapiens.gtf -o raw_gtf/SRR5687514.gtf -l SRR5687514 raw_bam/SRR5687514.bam
+
+
+* Stringtie Merging Transcripts : 
+    command : stringtie --merge -p 16 -G ref_genes/homo_sapiens.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
+
+
+* Gffcompare Comparing 
+Transcripts between Merged and Reference : 
+    command : gffcompare -r ref_genes/homo_sapiens.gtf -G -o merged/merged merged/stringtie_merged.gtf
+
+
+* Stringtie Creating Table count for Ballgown : 
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687509/SRR5687509.gtf -A gene_abundance/SRR5687509/SRR5687509.tsv raw_bam/SRR5687509.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687510/SRR5687510.gtf -A gene_abundance/SRR5687510/SRR5687510.tsv raw_bam/SRR5687510.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687511/SRR5687511.gtf -A gene_abundance/SRR5687511/SRR5687511.tsv raw_bam/SRR5687511.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687512/SRR5687512.gtf -A gene_abundance/SRR5687512/SRR5687512.tsv raw_bam/SRR5687512.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687513/SRR5687513.gtf -A gene_abundance/SRR5687513/SRR5687513.tsv raw_bam/SRR5687513.bam
+    command : stringtie -e -B -p 16 -G merged/stringtie_merged.gtf -o ballgown/SRR5687514/SRR5687514.gtf -A gene_abundance/SRR5687514/SRR5687514.tsv raw_bam/SRR5687514.bam
+
+
+* Installing 'prepDE.py' : 
+    Using R function : 'download.file()' is called.
+
+
+* Creating Gene and Transcript Raw Count File : 
+    command : python /work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/human/human_result/gene_data/reads_count_matrix/sample_lst.txt
+
+

@@ -1,0 +1,1416 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+
+Welcome to RNASeqR
+> RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/', num.parallel.threads = 20, Rsamtools.maxMemory = 2000, Hisat2.Index.run = TRUE, Hisat2.Alignment.run = TRUE, Rsamtools.Bam.run = TRUE, StringTie.Assemble.run = TRUE, StringTie.Merge.Trans.run = TRUE, Gffcompare.Ref.Sample.run = TRUE, StringTie.Ballgown.run = TRUE, PreDECountTable.run = TRUE)
+************** Adding PATH to R environment ************
+
+➤➤ R environment 'PATH' : /work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin
+
+
+⚜♜♜♜ RNASeqReadProcess()' environment pre-check ...
+
+************** Checking Availability of Commands ************
+
+************** Adding PATH to R environment ************
+
+➤➤ R environment 'PATH' : /work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin
+
+
+●  Checking hisat2 command
+
+/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/hisat2-align-s version 2.1.0
+64-bit
+Built on login-node03
+Wed Jun  7 15:53:42 EDT 2017
+Compiler: gcc version 4.8.2 (GCC) 
+Options: -O3 -m64 -msse2 -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+(✔) : 'hisat2' is installed
+
+
+●  Checking stringtie command
+
+1.3.4d
+(✔) : 'stringtie' is installed
+
+
+●  Checking gffcompare command
+
+gffcompare v0.10.4
+(✔) : 'gffcompare' is installed
+
+
+(✔) : RNASeqReadProcess() pre-check is valid
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.*.ht2' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/XXX.sam' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/XXX.bam' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Index Creation :
+
+************** Creating Hisat2 Index **************
+
+Input command : extract_splice_sites.py /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.ss
+
+
+
+Input command : extract_exons.py /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.exon
+
+
+
+Input command : hisat2-build --ss Saccharomyces_cerevisiae.ss --exon Saccharomyces_cerevisiae.exon /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa Saccharomyces_cerevisiae_tran
+
+Settings:
+  Output files: "Saccharomyces_cerevisiae_tran.*.ht2"
+  Line rate: 7 (line is 128 bytes)
+  Lines per side: 1 (side is 128 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Local offset rate: 3 (one in 8)
+  Local fTable chars: 6
+  Local sequence length: 57344
+  Local sequence overlap between two consecutive indexes: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 0
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa
+Reading reference sizes
+  Time reading reference sizes: 00:00:00
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:01
+  Time to read SNPs and splice sites: 00:00:00
+Generation 0 (12157397 -> 12157397 nodes, 0 ranks)
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 1
+Generation 1 (12157687 -> 12157687 nodes, 0 ranks)
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+Generation 2 (12158267 -> 12158267 nodes, 0 ranks)
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+Generation 3 (12159427 -> 12159427 nodes, 0 ranks)
+BUILT FROM_INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+RESIZE NODES: 0
+SORT NODES: 1
+MERGE, UPDATE RANK: 1
+Generation 4 (12161749 -> 12160176 nodes, 11481770 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 5 (12160364 -> 12160274 nodes, 11668240 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 6 (12160408 -> 12160346 nodes, 11740687 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 7 (12160489 -> 12160392 nodes, 11816146 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 1
+TOTAL TIME: 2
+Generation 8 (12160476 -> 12160416 nodes, 11897363 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 0
+BUILD INDEX: 1
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 9 (12160416 -> 12160416 nodes, 11977978 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 10 (12160416 -> 12160416 nodes, 12048966 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 11 (12160416 -> 12160416 nodes, 12108924 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 12 (12160416 -> 12160416 nodes, 12142546 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 13 (12160416 -> 12160416 nodes, 12160232 ranks)
+ALLOCATE FROM_TABLE: 0
+BUILD TABLE: 1
+BUILD INDEX: 0
+COUNTED NEW NODES: 0
+COUNTED TEMP NODES: 0
+RESIZED NODES: 0
+RESIZED NODES: 0
+MADE NEW NODES: 0
+MERGEUPDATERANK: 0
+TOTAL TIME: 1
+Generation 14 (12160416 -> 12160416 nodes, 12160416 ranks)
+Generating edges... 
+NODE.TO -> GENOME POS: 0
+BUILD FROM_INDEX 0
+COUNTED NEW EDGES: 0
+MADE NEW EDGES: 0
+SORTED NEW EDGES: 1
+RE-SORTED NODES: 1
+PROCESS EDGES: 0
+REMOVE Y: 0
+SORT, Make index: 1
+TOTAL: 3
+Allocating ftab, absorbFtab
+Entering GFM loop
+Exited GFM loop
+fchr[A]: 0
+fchr[C]: 3767536
+fchr[G]: 6088759
+fchr[T]: 8406584
+fchr[$]: 12160704
+Exiting GFM::buildToDisk()
+Returning from initFromVector
+Wrote 11678310 bytes to primary GFM file: Saccharomyces_cerevisiae_tran.1.ht2
+Wrote 3040108 bytes to secondary GFM file: Saccharomyces_cerevisiae_tran.2.ht2
+Re-opening _in1 and _in2 as input streams
+Returning from GFM constructor
+Returning from initFromVector
+Wrote 7646629 bytes to primary GFM file: Saccharomyces_cerevisiae_tran.5.ht2
+Wrote 3093012 bytes to secondary GFM file: Saccharomyces_cerevisiae_tran.6.ht2
+Re-opening _in5 and _in5 as input streams
+Returning from HierEbwt constructor
+Headers:
+    len: 12157105
+    gbwtLen: 12160705
+    nodes: 12160415
+    sz: 6078553
+    gbwtSz: 6080353
+    lineRate: 7
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 0
+    eftabSz: 0
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 760026
+    offsSz: 3040104
+    lineSz: 128
+    sideSz: 128
+    sideGbwtSz: 104
+    sideGbwtLen: 208
+    numSides: 58465
+    numLines: 58465
+    gbwtTotLen: 7483520
+    gbwtTotSz: 7483520
+    reverse: 0
+    linearFM: No
+Total time for call to driver() for forward index: 00:00:50
+
+
+'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.*.ht2' has been created.
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/XXX.sam' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/XXX.bam' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Alignment :
+
+************** Hisat2 Alignment **************
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396381_1.fastq.gz -2 raw_fastq.gz/SRR3396381_2.fastq.gz -S raw_sam/SRR3396381.sam
+
+8405534 reads; of these:
+  8405534 (100.00%) were paired; of these:
+    651445 (7.75%) aligned concordantly 0 times
+    7421404 (88.29%) aligned concordantly exactly 1 time
+    332685 (3.96%) aligned concordantly >1 times
+    ----
+    651445 pairs aligned concordantly 0 times; of these:
+      151886 (23.32%) aligned discordantly 1 time
+    ----
+    499559 pairs aligned 0 times concordantly or discordantly; of these:
+      999118 mates make up the pairs; of these:
+        552280 (55.28%) aligned 0 times
+        415493 (41.59%) aligned exactly 1 time
+        31345 (3.14%) aligned >1 times
+96.71% overall alignment rate
+
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396382_1.fastq.gz -2 raw_fastq.gz/SRR3396382_2.fastq.gz -S raw_sam/SRR3396382.sam
+
+9755935 reads; of these:
+  9755935 (100.00%) were paired; of these:
+    970615 (9.95%) aligned concordantly 0 times
+    8406813 (86.17%) aligned concordantly exactly 1 time
+    378507 (3.88%) aligned concordantly >1 times
+    ----
+    970615 pairs aligned concordantly 0 times; of these:
+      220393 (22.71%) aligned discordantly 1 time
+    ----
+    750222 pairs aligned 0 times concordantly or discordantly; of these:
+      1500444 mates make up the pairs; of these:
+        928773 (61.90%) aligned 0 times
+        531664 (35.43%) aligned exactly 1 time
+        40007 (2.67%) aligned >1 times
+95.24% overall alignment rate
+
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396384_1.fastq.gz -2 raw_fastq.gz/SRR3396384_2.fastq.gz -S raw_sam/SRR3396384.sam
+
+10175785 reads; of these:
+  10175785 (100.00%) were paired; of these:
+    898560 (8.83%) aligned concordantly 0 times
+    8873603 (87.20%) aligned concordantly exactly 1 time
+    403622 (3.97%) aligned concordantly >1 times
+    ----
+    898560 pairs aligned concordantly 0 times; of these:
+      205075 (22.82%) aligned discordantly 1 time
+    ----
+    693485 pairs aligned 0 times concordantly or discordantly; of these:
+      1386970 mates make up the pairs; of these:
+        797980 (57.53%) aligned 0 times
+        547639 (39.48%) aligned exactly 1 time
+        41351 (2.98%) aligned >1 times
+96.08% overall alignment rate
+
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396385_1.fastq.gz -2 raw_fastq.gz/SRR3396385_2.fastq.gz -S raw_sam/SRR3396385.sam
+
+9625471 reads; of these:
+  9625471 (100.00%) were paired; of these:
+    962442 (10.00%) aligned concordantly 0 times
+    8287457 (86.10%) aligned concordantly exactly 1 time
+    375572 (3.90%) aligned concordantly >1 times
+    ----
+    962442 pairs aligned concordantly 0 times; of these:
+      259864 (27.00%) aligned discordantly 1 time
+    ----
+    702578 pairs aligned 0 times concordantly or discordantly; of these:
+      1405156 mates make up the pairs; of these:
+        859369 (61.16%) aligned 0 times
+        501938 (35.72%) aligned exactly 1 time
+        43849 (3.12%) aligned >1 times
+95.54% overall alignment rate
+
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396386_1.fastq.gz -2 raw_fastq.gz/SRR3396386_2.fastq.gz -S raw_sam/SRR3396386.sam
+
+10302142 reads; of these:
+  10302142 (100.00%) were paired; of these:
+    713243 (6.92%) aligned concordantly 0 times
+    9155149 (88.87%) aligned concordantly exactly 1 time
+    433750 (4.21%) aligned concordantly >1 times
+    ----
+    713243 pairs aligned concordantly 0 times; of these:
+      114435 (16.04%) aligned discordantly 1 time
+    ----
+    598808 pairs aligned 0 times concordantly or discordantly; of these:
+      1197616 mates make up the pairs; of these:
+        657135 (54.87%) aligned 0 times
+        502555 (41.96%) aligned exactly 1 time
+        37926 (3.17%) aligned >1 times
+96.81% overall alignment rate
+
+
+Input command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396387_1.fastq.gz -2 raw_fastq.gz/SRR3396387_2.fastq.gz -S raw_sam/SRR3396387.sam
+
+9997148 reads; of these:
+  9997148 (100.00%) were paired; of these:
+    802331 (8.03%) aligned concordantly 0 times
+    8553533 (85.56%) aligned concordantly exactly 1 time
+    641284 (6.41%) aligned concordantly >1 times
+    ----
+    802331 pairs aligned concordantly 0 times; of these:
+      180074 (22.44%) aligned discordantly 1 time
+    ----
+    622257 pairs aligned 0 times concordantly or discordantly; of these:
+      1244514 mates make up the pairs; of these:
+        712584 (57.26%) aligned 0 times
+        478792 (38.47%) aligned exactly 1 time
+        53138 (4.27%) aligned >1 times
+96.44% overall alignment rate
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/XXX.bam' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ 'SAM' to 'BAM' :
+
+************** Rsamtools converting '.sam' to '.bam' **************
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/XXX.gtf' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Assembly :
+
+************** Stringtie assembly **************
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396381.gtf -l SRR3396381 raw_bam/SRR3396381.bam
+
+
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396382.gtf -l SRR3396382 raw_bam/SRR3396382.bam
+
+
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396384.gtf -l SRR3396384 raw_bam/SRR3396384.bam
+
+
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396385.gtf -l SRR3396385 raw_bam/SRR3396385.bam
+
+
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396386.gtf -l SRR3396386 raw_bam/SRR3396386.bam
+
+
+
+Input command :stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396387.gtf -l SRR3396387 raw_bam/SRR3396387.bam
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396381.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396382.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396384.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396385.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396386.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396387.gtf' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Transcript Merging :
+
+************** Stringtie merging transcripts **************
+
+Input command :stringtie --merge -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396381.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396382.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396384.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396385.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396386.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396387.gtf' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.XXX/' is not exit
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Merged `GTF` & Reference Comparison :
+
+************** Gffcompare comparing transcripts between merged and reference **************
+
+Input command : gffcompare -r ref_genes/Saccharomyces_cerevisiae.gtf -G -o merged/merged merged/stringtie_merged.gtf
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396381.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396382.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396384.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396385.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396386.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396387.gtf' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.annotated.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.loci' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stats' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stringtie_merged.gtf.refmap' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stringtie_merged.gtf.tmap' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.tracking' is exit
+
+Total: 6 files
+
+
+(⌛) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR[0-9]*/' is not exit
+
+
+☘☘☘ Ballgown Table count Creation :
+
+************** Stringtie creating table count for Ballgown **************
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396381/SRR3396381.gtf -A gene_abundance/SRR3396381/SRR3396381.tsv raw_bam/SRR3396381.bam
+
+
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396382/SRR3396382.gtf -A gene_abundance/SRR3396382/SRR3396382.tsv raw_bam/SRR3396382.bam
+
+
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396384/SRR3396384.gtf -A gene_abundance/SRR3396384/SRR3396384.tsv raw_bam/SRR3396384.bam
+
+
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396385/SRR3396385.gtf -A gene_abundance/SRR3396385/SRR3396385.tsv raw_bam/SRR3396385.bam
+
+
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396386/SRR3396386.gtf -A gene_abundance/SRR3396386/SRR3396386.tsv raw_bam/SRR3396386.bam
+
+
+
+Input command :stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396387/SRR3396387.gtf -A gene_abundance/SRR3396387/SRR3396387.tsv raw_bam/SRR3396387.bam
+
+
+
+🔍🔍🔍 Checking Files ...
+
+************** Current progress of RNA-seq files in '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/' **************
+
+(✔) :'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz' is exit
+
+Total: 12 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv' is exit
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.1.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.2.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.3.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.4.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.5.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.6.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.7.ht2' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/indices/Saccharomyces_cerevisiae_tran.8.ht2' is exit
+
+Total: 8 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396381.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396382.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396384.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396385.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396386.sam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_sam/SRR3396387.sam' is exit
+
+Total: 6 file
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396381.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396382.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396384.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396385.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396386.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_gtf/SRR3396387.gtf' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.annotated.gtf' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.loci' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stats' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stringtie_merged.gtf.refmap' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.stringtie_merged.gtf.tmap' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/merged/merged.tracking' is exit
+
+Total: 6 files
+
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396381' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396382' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396384' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396385' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396386' is exit
+
+(✔) : '/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ballgown/SRR3396387' is exit
+
+Total: 6 directories
+
+
+
+☘☘☘ Raw Reads Count Creation :
+
+************** Installing prepDE.py ************
+
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix
+
+嘗試 URL 'https://ccb.jhu.edu/software/stringtie/dl/prepDE.py'
+Content type 'text/plain; charset=UTF-8' length 11095 bytes (10 KB)
+==================================================
+downloaded 10 KB
+
+Using R function : 'download.file()' is called. 
+
+'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/prepDE.py' has been installed.
+
+
+************** Creating 'sample_lst.txt' file ************
+
+'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/sample_lst.txt' has been created
+
+
+************** Creating gene and transcript raw count file ************
+
+(✔) : Python is available on your device!
+
+       Python version : 2.7
+
+
+(✔) : Creating gene and transcript raw count files now !
+
+Input command :python /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/sample_lst.txt
+
+
+0 SRR3396381
+1 SRR3396382
+2 SRR3396384
+3 SRR3396385
+4 SRR3396386
+5 SRR3396387
+'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/gene_count_matrix.csv' has been created
+
+'/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/transcript_count_matrix.csv' has been created
+
+
+⚜♜♜♜ RNASeqReadProcess()' environment post-check ...
+
+(✔) : RNASeqReadProcess() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+Warning messages:
+1: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 12 files...
+2: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 14 files...
+3: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 14 files...
+4: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 13 files...
+5: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 14 files...
+6: In .local(file, destination, ...) :
+  [bam_sort_core] merging from 15 files...
+> 
+> proc.time()
+    user   system  elapsed 
+25043.84 13293.96 16006.57 

@@ -1,0 +1,2 @@
+library(RNASeqR)
+RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/human/human_result/', SAMtools.or.Rsamtools = 'SAMtools', num.parallel.threads = 16, Rsamtools.nCores = 1, Hisat2.Index.run = TRUE, Hisat2.Alignment.run = TRUE, Rsamtools.Bam.run = TRUE, StringTie.Assemble.run = TRUE, StringTie.Merge.Trans.run = TRUE, Gffcompare.Ref.Sample.run = TRUE, StringTie.Ballgown.run = TRUE, PreDECountTable.run = TRUE)

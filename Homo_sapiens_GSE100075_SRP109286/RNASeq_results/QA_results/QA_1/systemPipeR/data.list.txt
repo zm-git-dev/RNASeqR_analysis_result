@@ -1,0 +1,13 @@
+FileName	SampleName	SampleLong
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_1.fastq.gz	SRR5687509_1	1
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687509_2.fastq.gz	SRR5687509_2	2
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_1.fastq.gz	SRR5687510_1	3
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687510_2.fastq.gz	SRR5687510_2	4
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_1.fastq.gz	SRR5687511_1	5
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687511_2.fastq.gz	SRR5687511_2	6
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_1.fastq.gz	SRR5687512_1	7
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687512_2.fastq.gz	SRR5687512_2	8
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_1.fastq.gz	SRR5687513_1	9
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687513_2.fastq.gz	SRR5687513_2	10
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_1.fastq.gz	SRR5687514_1	11
+/work171/kuan-hao/human/human_result/gene_data/raw_fastq.gz/SRR5687514_2.fastq.gz	SRR5687514_2	12

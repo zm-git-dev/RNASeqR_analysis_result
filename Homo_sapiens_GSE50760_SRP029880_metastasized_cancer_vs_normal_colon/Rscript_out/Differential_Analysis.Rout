@@ -1,0 +1,405 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+
+[Previously saved workspace restored]
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+Welcome to RNASeqR
+> RNASeqDifferentialAnalysis(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/', ballgown.run = TRUE, ballgown.pval = 0.05, ballgown.log2FC = 1, DESeq2.run = TRUE, DESeq2.pval = 0.1, DESeq2.log2FC = 1, edgeR.run = TRUE, edgeR.pval = 0.05, edgeR.log2FC = 1)
+⚜♜♜♜ RNASeqDifferentialAnalysis()' environment pre-check ...
+
+(✔) : RNASeqDifferentialAnalysis() pre-check is valid
+
+
+☘☘☘☘☘☘☘☘  Start 'ballgown', 'DESeq2' 'edgeR' analyses  ☘☘☘☘☘☘☘☘
+
+
+☘☘ ballgown analysis ...
+
+Sun Sep 30 11:19:44 2018
+Sun Sep 30 11:19:44 2018: Reading linking tables
+Sun Sep 30 11:19:45 2018: Reading intron data files
+Sun Sep 30 11:20:11 2018: Merging intron data
+Sun Sep 30 11:20:17 2018: Reading exon data files
+Sun Sep 30 11:21:03 2018: Merging exon data
+Sun Sep 30 11:21:11 2018: Reading transcript data files
+Sun Sep 30 11:21:25 2018: Merging transcript data
+Wrapping up the results
+Sun Sep 30 11:21:28 2018
+     ● Selecting differential expressed genes(ballgown) ==> p-value : 0.05  log2(Fold Change) : 1 ...
+
+          ● Total '1599' DEG have been found !!!
+
+● Plotting Transcript related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/Transcript_Related/Distribution_Transcript_Count_per_Gene_Plot.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/Transcript_Related/Distribution_Transcript_Length_Plot.png' has been created. 
+
+
+● Plotting  Frequency plot
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/Frequency_Plot_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/Frequency_Plot_log_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+● Plotting Box plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/Distribution/Box_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Violin plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/Distribution/Violin_Plot_ggplot2.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Correlation plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/Correlation/Correlation_Dot_Plot_corrplot.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/Correlation/Correlation_Bar_Plot_PerformanceAnalytics.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/Correlation/Correlation_Heat_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Volcano plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/DE/Volcano_Plot_ggplot2.png' has been created. 
+
+
+● Plotting MA plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/preDE/MA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/DE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/DE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/DE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Differential Expressed Heatmap related plot
+
+     ● Checking found differential express transcript term.
+
+          ● Total sample number: 20 (sample name will not be shown).
+
+          ● Found 159 terms. More than 60 terms (gene names will not be shown).
+
+     ● Calculating log2(FPKM+1).
+
+     ● Each log2(FPKM+1) minus average of control.
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/ballgown_analysis/images/DE/Heatmap_Plot_pheatmap.png' has been created. 
+
+
+
+☘☘ DESeq2 analysis ...
+
+● Creating 'DGEList' object from count matrix ... 
+
+● Creating 'DESeqDataSet' object from count matrix ... 
+
+estimating size factors
+estimating dispersions
+gene-wise dispersion estimates
+mean-dispersion relationship
+final dispersion estimates
+fitting model and testing
+-- replacing outliers and refitting for 1245 genes
+-- DESeq argument 'minReplicatesForReplace' = 7 
+-- original counts are preserved in counts(dds)
+estimating dispersions
+fitting model and testing
+     ● Selecting differential expressed genes(DESeq2) ==> padj-value : 0.1  log2(Fold Change) : 1 ...
+
+          ● Total '5146' DEG have been found !!
+● Plotting  Frequency plot
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/Frequency_Plot_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/Frequency_Plot_log_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+● Plotting Box plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/Distribution/Box_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Violin plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/Distribution/Violin_Plot_ggplot2.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Correlation plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/Correlation/Correlation_Dot_Plot_corrplot.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/Correlation/Correlation_Bar_Plot_PerformanceAnalytics.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/preDE/Correlation/Correlation_Heat_Plot_ggplot2.png' has been created. 
+
+
+● Plotting  Dispersion plot
+
+(✔) : 'RNASeq_results/DESeq2_analysis/images/DE/Dispersion_Plot_DESeq2.png' has been created. 
+
+
+● Plotting Volcano plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/Volcano_Plot_ggplot2.png' has been created. 
+
+
+● Plotting  MA plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/MA_Plot_DESeq2.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Differential Expressed Heatmap related plot
+
+     ● Checking found differential express transcript term.
+
+          ● Total sample number: 20 (sample name will not be shown).
+
+          ● Found 1513 terms. More than 60 terms (gene names will not be shown).
+
+     ● Calculating log2(MRN+1).
+
+     ● Each log2(MRN+1) minus average of control.
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/images/DE/Heatmap_Plot_pheatmap.png' has been created. 
+
+
+
+☘☘ edgeR analysis ...
+
+● Creating 'DGEList' object from count matrix ... 
+
+     ● Normalizing DGEList object (TMM) ... 
+
+     ● Selecting differential expressed genes(edgeR) ==> p-value : 0.05  log2(Fold Change) : 1 ...
+
+          ● Total '5364' DEG have been found !!
+● Plotting  Frequency plot
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/Frequency_Plot_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/Frequency_Plot_log_normalized_count_ggplot2.png' has been created. 
+
+
+No id variables; using all as measure variables
+● Plotting Box plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Distribution/Box_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Violin plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Distribution/Violin_Plot_ggplot2.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Correlation plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Correlation/Correlation_Dot_Plot_corrplot.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Correlation/Correlation_Bar_Plot_PerformanceAnalytics.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Correlation/Correlation_Heat_Plot_ggplot2.png' has been created. 
+
+
+● Plotting MDS plot ... 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/MDS_Plot_edgeR.png' has been created. 
+
+
+● Plotting MeanVar plot ... 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/MeanVar_Plot_edgeR.png' has been created. 
+
+
+● Plotting BCV plot ...
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/BCV_Plot_edgeR.png' has been created. 
+
+
+● Plotting Volcano plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/DE/Volcano_Plot_ggplot2.png' has been created. 
+
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/preDE/Smear_Plot_edgeR.png' has been created. 
+
+
+● Plotting PCA related plot
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/DE/PCA/Dimension_PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/DE/PCA/PCA_Plot_factoextra.png' has been created. 
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/DE/PCA/PCA_Plot_ggplot2.png' has been created. 
+
+
+● Plotting Differential Expressed Heatmap related plot
+
+     ● Checking found differential express transcript term.
+
+          ● Total sample number: 20 (sample name will not be shown).
+
+          ● Found 1534 terms. More than 60 terms (gene names will not be shown).
+
+     ● Calculating log2(TMM&CPM+1).
+
+     ● Each log2(TMM&CPM+1) minus average of control.
+
+(✔) : '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_results/edgeR_analysis/images/DE/Heatmap_Plot_pheatmap.png' has been created. 
+
+
+⚜♜♜♜ RNASeqDifferentialAnalysis()' environment post-check ...
+
+(✔) : RNASeqDifferentialAnalysis() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+There were 15 warnings (use warnings() to see them)
+> 
+> proc.time()
+   user  system elapsed 
+855.126   2.914 857.443 

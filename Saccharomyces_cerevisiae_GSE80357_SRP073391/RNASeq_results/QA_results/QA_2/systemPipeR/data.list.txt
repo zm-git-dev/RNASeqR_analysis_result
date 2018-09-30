@@ -1,0 +1,13 @@
+FileName	SampleName	SampleLong
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_1.fastq.gz	SRR3396381_1	1
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396381_2.fastq.gz	SRR3396381_2	2
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_1.fastq.gz	SRR3396382_1	3
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396382_2.fastq.gz	SRR3396382_2	4
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_1.fastq.gz	SRR3396384_1	5
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396384_2.fastq.gz	SRR3396384_2	6
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_1.fastq.gz	SRR3396385_1	7
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396385_2.fastq.gz	SRR3396385_2	8
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_1.fastq.gz	SRR3396386_1	9
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396386_2.fastq.gz	SRR3396386_2	10
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_1.fastq.gz	SRR3396387_1	11
+/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/SRR3396387_2.fastq.gz	SRR3396387_2	12
