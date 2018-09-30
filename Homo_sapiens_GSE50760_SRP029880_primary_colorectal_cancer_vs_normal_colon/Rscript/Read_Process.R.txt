@@ -1,0 +1,2 @@
+library(RNASeqR)
+RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/', SAMtools.or.Rsamtools = 'SAMtools', num.parallel.threads = 1, Rsamtools.nCores = 1, Hisat2.Index.run = TRUE, Hisat2.Alignment.run = TRUE, Rsamtools.Bam.run = TRUE, StringTie.Assemble.run = TRUE, StringTie.Merge.Trans.run = TRUE, Gffcompare.Ref.Sample.run = TRUE, StringTie.Ballgown.run = TRUE, PreDECountTable.run = TRUE)

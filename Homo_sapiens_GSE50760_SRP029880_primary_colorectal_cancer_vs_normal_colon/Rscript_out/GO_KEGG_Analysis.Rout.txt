@@ -1,0 +1,478 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+
+[Previously saved workspace restored]
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+Welcome to RNASeqR
+> RNASeqGoKegg(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/', OrgDb.species = 'org.Hs.eg.db', go.level = 3, input.TYPE.ID = 'SYMBOL', KEGG.organism = 'hsa')
+⚜♜♜♜ RNASeqGoKegg()' environment pre-check ...
+
+(✔) : RNASeqGoKegg() pre-check is valid
+
+
+☘☘☘☘☘☘☘☘  Start 'Gene Ontology', 'Kyoto Encyclopedia of Genes and Genomes' analyses  ☘☘☘☘☘☘☘☘
+
+☘☘ ballgown analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 91
+
+     Found ENTREZID gene ID :
+              343  342357  84706  283848  28987  23035  ...
+
+     ● GO Classification ... 
+
+Loading required package: DOSE
+DOSE v3.7.1  For help: https://guangchuangyu.github.io/DOSE
+
+If you use DOSE in published research, please cite:
+Guangchuang Yu, Li-Gen Wang, Guang-Rong Yan, Qing-Yu He. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. Bioinformatics 2015, 31(4):608-609
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 91
+
+     Found ENTREZID gene ID :
+              343  342357  84706  283848  28987  23035  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 91
+
+     Found ENTREZID gene ID :
+              343  342357  84706  283848  28987  23035  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:many mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 109
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : 10050  10050  10144  10272  10272  10318  ...
+
+     ● (⚠) No over-representation term is found.
+
+===============================================================
+===============================================================
+
+
+☘☘ DESeq2 analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 910
+
+     Found ENTREZID gene ID :
+              8929  79792  153527  23117  2346  4107  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 910
+
+     Found ENTREZID gene ID :
+              8929  79792  153527  23117  2346  4107  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 910
+
+     Found ENTREZID gene ID :
+              8929  79792  153527  23117  2346  4107  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:many mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 1100
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : 10004  1001  100287036  100288413  1004  10050  ...
+
+     ● (✔) KEGG over-representation test enriched term found! 3
+
+          ● Writing 'KEGG_Overrepresentation.csv' 
+
+          ● Finding 'hsa05203' KEGG URL ... 
+
+               ● Writting 'URL_hsa05203_Pathway.txt' 
+
+               ● Plotting 'hsa05203' pathway by package "pathview" 
+
+Info: Downloading xml files for hsa05203, 1/1 pathways..
+Info: Downloading png files for hsa05203, 1/1 pathways..
+'select()' returned 1:1 mapping between keys and columns
+Info: Working in directory /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/hsa05203/pathview_result
+Info: Writing image file hsa05203.pathview.png
+          ● Finding 'hsa05322' KEGG URL ... 
+
+               ● Writting 'URL_hsa05322_Pathway.txt' 
+
+               ● Plotting 'hsa05322' pathway by package "pathview" 
+
+Info: Downloading xml files for hsa05322, 1/1 pathways..
+Info: Downloading png files for hsa05322, 1/1 pathways..
+'select()' returned 1:1 mapping between keys and columns
+Info: Working in directory /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/hsa05322/pathview_result
+Info: Writing image file hsa05322.pathview.png
+          ● Finding 'hsa05034' KEGG URL ... 
+
+               ● Writting 'URL_hsa05034_Pathway.txt' 
+
+               ● Plotting 'hsa05034' pathway by package "pathview" 
+
+Info: Downloading xml files for hsa05034, 1/1 pathways..
+Info: Downloading png files for hsa05034, 1/1 pathways..
+'select()' returned 1:1 mapping between keys and columns
+Info: Working in directory /work171/kuan-hao/paper_sample/primary_colorectal_cancer_vs_normal_colon/primary_colorectal_cancer_vs_normal_colon_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/hsa05034/pathview_result
+Info: Writing image file hsa05034.pathview.png
+===============================================================
+===============================================================
+
+
+☘☘ edgeR analysis ...
+
+● Checking 'go.level' value : 3
+
+(✔) 'go.level' is integer! Valid
+
+
+⚔⚔ Gene Ontology Analysis 
+
+'select()' returned 1:1 mapping between keys and columns
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'MF' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 1001
+
+     Found ENTREZID gene ID :
+              160  157869  8929  1593  153527  148824  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (MF) result found! 
+
+               ● Writing 'GO_MF_Classification.csv' 
+
+               ● Plotting 'GO_MF_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (MF) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'BP' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 1001
+
+     Found ENTREZID gene ID :
+              160  157869  8929  1593  153527  148824  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (BP) result found! 
+
+               ● Writing 'GO_BP_Classification.csv' 
+
+               ● Plotting 'GO_BP_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (BP) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+● 'CC' : 
+
+     ● Checking differential expression gene number ... 
+
+          ● Differential expression gene number : 1001
+
+     Found ENTREZID gene ID :
+              160  157869  8929  1593  153527  148824  ...
+
+     ● GO Classification ... 
+
+          ● (✔) GO Classification (CC) result found! 
+
+               ● Writing 'GO_CC_Classification.csv' 
+
+               ● Plotting 'GO_CC_Classification_Bar_Plot_clusterProfiler.png' 
+
+     ● GO Over-representation Test ... 
+
+          ● (✔) GO over-representation test (CC) enriched term found : 0
+
+          ● (⚠) No enriched term is found.
+
+⚔⚔ Kyoto Encyclopedia of Genes and Genomes Analysis 
+
+'select()' returned 1:many mapping between keys and columns
+● Checking differential expression gene number ... 
+
+     ● Differential expression gene number : 1177
+
+● KEGG Over-representation Test ... 
+
+     Found kegg gene ID : 10004  1001  100128553  100129480  100142659  100287036  ...
+
+     ● (⚠) No over-representation term is found.
+
+===============================================================
+===============================================================
+
+
+⚜♜♜♜ RNASeqGoKegg()' environment post-check ...
+
+(✔) : RNASeqGoKegg() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+Warning messages:
+1: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("ENTREZID"),  :
+  1.09% of input gene IDs are fail to map...
+2: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("UNIPROT",  :
+  6.52% of input gene IDs are fail to map...
+3: In clusterProfiler::bitr_kegg(gene.df.DE$UNIPROT, fromType = "uniprot",  :
+  22.3% of input gene IDs are fail to map...
+4: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("ENTREZID"),  :
+  2.67% of input gene IDs are fail to map...
+5: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("UNIPROT",  :
+  15.61% of input gene IDs are fail to map...
+6: In clusterProfiler::bitr_kegg(gene.df.DE$UNIPROT, fromType = "uniprot",  :
+  25.04% of input gene IDs are fail to map...
+7: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("ENTREZID"),  :
+  3.29% of input gene IDs are fail to map...
+8: In clusterProfiler::bitr(gene_name, fromType = input.TYPE.ID, toType = c("UNIPROT",  :
+  17.78% of input gene IDs are fail to map...
+9: In clusterProfiler::bitr_kegg(gene.df.DE$UNIPROT, fromType = "uniprot",  :
+  25.53% of input gene IDs are fail to map...
+> 
+> proc.time()
+    user   system  elapsed 
+1572.859   17.725 1598.970 

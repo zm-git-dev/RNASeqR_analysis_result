@@ -1,0 +1,157 @@
+
+R version 3.5.0 (2018-04-23) -- "Joy in Playing"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況並且
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+[Previously saved workspace restored]
+
+> library(RNASeqR)
+Loading required package: ggplot2
+Loading required package: pathview
+Loading required package: org.Hs.eg.db
+Loading required package: AnnotationDbi
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: IRanges
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+
+##############################################################################
+Pathview is an open source software package distributed under GNU General
+Public License version 3 (GPLv3). Details of GPLv3 is available at
+http://www.gnu.org/licenses/gpl-3.0.html. Particullary, users are required to
+formally cite the original Pathview paper (not just mention it) in publications
+or products. For details, do citation("pathview") within R.
+
+The pathview downloads and uses KEGG data. Non-academic uses may require a KEGG
+license agreement (details at http://www.kegg.jp/kegg/legal.html).
+##############################################################################
+Loading required package: edgeR
+Loading required package: limma
+
+Attaching package: ‘limma’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+
+
+Welcome to RNASeqR
+> RNASeqQualityAssessment(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/')
+⚜♜♜♜ 'RNASeqQualityAssessment()' environment pre-check ...
+
+************** Checking Availability of Commands ************
+
+************** Adding PATH to R environment ************
+
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_bin
+
+
+●  Checking hisat2 command
+
+/work171/kuan-hao/paper_sample/metastasized_cancer_vs_normal_colon/metastasized_cancer_vs_normal_colon_result/RNASeq_bin/hisat2-align-s version 2.1.0
+64-bit
+Built on login-node03
+Wed Jun  7 15:53:42 EDT 2017
+Compiler: gcc version 4.8.2 (GCC) 
+Options: -O3 -m64 -msse2 -funroll-loops -g3 -DPOPCNT_CAPABILITY
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+(✔) : 'hisat2' is installed
+
+
+●  Checking stringtie command
+
+1.3.4d
+(✔) : 'stringtie' is installed
+
+
+●  Checking gffcompare command
+
+gffcompare v0.10.4
+(✔) : 'gffcompare' is installed
+
+
+(✔) : RNASeqQualityAssessment() pre-check is valid
+
+
+************** Quality Assessment **************
+
+● 2. R package "systemPipeR" quality assessment
+
+[1] "Generated rnaseq directory. Next run in rnaseq directory, the R code from *.Rmd (*.Rnw) template interactively. Alternatively, workflows can be exectued with a single command as instructed in the vignette."
+     ●  Writing "data.list.txt"
+
+     ●  Running 'seeFastq()' ...  Please wait ⌛⌛⌛
+
+     ●  Creating 'fastqReport.pdf' ...  Please wait ⌛⌛⌛
+
+     ●  Removing 'RNASeq' directory...  Please wait ⌛⌛⌛
+
+     (✔) : systemPipeR assessment success ~~
+
+
+⚜♜♜♜ 'RNASeqQualityAssessment()' environment post-check ...
+
+(✔) : RNASeqQualityAssessment() post-check is valid
+
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+★★★★★★★★★★★★ Success!! ★★★★★★★★★★★★
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+> 
+> proc.time()
+     user    system   elapsed 
+10515.537   545.378 24708.690 

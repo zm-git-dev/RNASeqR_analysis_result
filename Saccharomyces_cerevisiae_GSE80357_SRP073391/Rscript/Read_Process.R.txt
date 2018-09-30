@@ -1,0 +1,2 @@
+library(RNASeqR)
+RNASeqReadProcess(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/', num.parallel.threads = 20, Rsamtools.maxMemory = 2000, Hisat2.Index.run = TRUE, Hisat2.Alignment.run = TRUE, Rsamtools.Bam.run = TRUE, StringTie.Assemble.run = TRUE, StringTie.Merge.Trans.run = TRUE, Gffcompare.Ref.Sample.run = TRUE, StringTie.Ballgown.run = TRUE, PreDECountTable.run = TRUE)
