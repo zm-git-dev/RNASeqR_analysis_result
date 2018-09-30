@@ -26,5 +26,5 @@
   * SRA        : SRP073391
   * Sample     : **amphotericin_B (0.03 µg/mL)** vs **control**
   
-_GSE80357_SRP073391
+
 ###### tags: `RNASeqR`
