@@ -1,10 +1,10 @@
 # *Saccharomyces cerevisiae* 
 
-* <img src="https://i.imgur.com/cvAtbAY.png" width="4%"> [**Saccharomyces cerevisiae**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
-  * GEO        : GSE80357
-  * BioProject : PRJNA318684
-  * SRA        : SRP073391
-  * Sample     : **amphotericin_B (0.03 µg/mL)** vs **control**
+<img src="https://i.imgur.com/cvAtbAY.png" width="4%"> [**Saccharomyces cerevisiae**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
+ * GEO        : GSE80357
+ * BioProject : PRJNA318684
+ * SRA        : SRP073391
+ * Sample     : **amphotericin_B (0.03 µg/mL)** vs **control**
 
 ---
 
