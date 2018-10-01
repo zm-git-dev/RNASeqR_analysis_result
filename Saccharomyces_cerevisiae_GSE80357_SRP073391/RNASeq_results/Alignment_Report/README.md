@@ -10,9 +10,9 @@
 
 &#8617; [**.\./**](https://howardchao.github.io/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/)	
 
-&#128193; [**gene_data/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/Alignment_Report/Alignment_report.csv)
+<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**Alignment_Report.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/Alignment_Report/Alignment_report.csv)
 
-&#128193; [**RNASeq_bin/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/Alignment_Report/Alignment_report.png)
+<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**Alignment_Report.png**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/Alignment_Report/Alignment_report.png)
 
 
 ###### tags: `RNASeqR`
