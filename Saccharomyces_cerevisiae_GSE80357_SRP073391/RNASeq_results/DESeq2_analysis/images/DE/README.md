@@ -8,7 +8,7 @@
 
 ---
 
-&#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis)
+&#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysisimages/)
 
 &#128193; [**PCA/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/DE/PCA/)
 
