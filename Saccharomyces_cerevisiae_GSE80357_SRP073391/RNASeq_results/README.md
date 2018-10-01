@@ -20,6 +20,6 @@
 
 &#128193; [**edgeR_analysis/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/edgeR_analysis/)
 
-<img src="https://i.imgur.com/HIvCfTh.png" width="4%"> [**COMMAND.txt**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/COMMAND.txt)
+<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**COMMAND.txt**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/COMMAND.txt)
 
 ###### tags: `RNASeqR`
