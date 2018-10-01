@@ -10,8 +10,8 @@
 
 &#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis)	
 
-&#128193; [**GO_analysis/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE)
+&#128193; [**preDE/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE)
 
-&#128193; [**KEGG_analysis/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/DE)
+&#128193; [**DE/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/DE)
 
 ###### tags: `RNASeqR`
