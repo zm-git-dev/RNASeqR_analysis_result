@@ -10,11 +10,9 @@
 
 &#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/)	
 
-<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**TMM&CPM_case.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/TMM&CPM_case.csv)
+<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**MRN_case.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/MRN_case.csv)
 
-<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**TMM&CPM_control.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/TMM&CPM_control.csv)
-
-<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**TMM.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/TMM.csv)
+<img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**MRN_control.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/MRN_control.csv)
 
 <img src="https://i.imgur.com/HIvCfTh.png" width="2.5%"> [**statistic.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/normalized_&_statistic/statistic.csv)
 
