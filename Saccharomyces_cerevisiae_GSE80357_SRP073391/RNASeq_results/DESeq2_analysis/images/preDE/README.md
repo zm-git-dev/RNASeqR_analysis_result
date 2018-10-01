@@ -12,12 +12,12 @@
 
 <img src="https://i.imgur.com/P7dWPGf.png" width="2.5%"> [**DESeq2_normalized_result.csv**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/Dispersion_Plot_DESeq2.png)
 
-&#128193; [**Frequency/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/Frequency/)
-
 &#128193; [**Distribution/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/Distribution/)
 
 &#128193; [**Correlation/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/Correlation/)
 
 &#128193; [**PCA/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/PCA)
+
+&#128193; [**Frequency/**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/Frequency/)
 
 ###### tags: `RNASeqR`
