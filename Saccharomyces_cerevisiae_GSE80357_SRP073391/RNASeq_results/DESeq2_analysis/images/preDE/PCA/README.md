@@ -12,7 +12,7 @@
 
 <img src="https://i.imgur.com/P7dWPGf.png" width="2.5%"> [**Dimension_PCA_Plot_factoextra.png**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/PCA/Dimension_PCA_Plot_factoextra.png)
 
-<img src="https://i.imgur.com/P7dWPGf.png" width="2.5%"> [**Dimension_PCA_Plot_factoextra.png**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/PCA/Dimension_PCA_Plot_factoextra.png)
+<img src="https://i.imgur.com/P7dWPGf.png" width="2.5%"> [**PCA_Plot_factoextra.png**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/PCA/PCA_Plot_factoextra.png)
 
 <img src="https://i.imgur.com/P7dWPGf.png" width="2.5%"> [**PCA_Plot_ggplot2.png**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/RNASeq_results/DESeq2_analysis/images/preDE/PCA/PCA_Plot_ggplot2.png)
 
