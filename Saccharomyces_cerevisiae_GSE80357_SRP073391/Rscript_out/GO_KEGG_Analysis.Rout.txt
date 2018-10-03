@@ -3,17 +3,20 @@ R version 3.5.0 (2018-04-23) -- "Joy in Playing"
 Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
-R 是免費軟體，不提供任何擔保。
-在某些條件下您可以將其自由散布。
-用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
 
-R 是個合作計劃，有許多人為之做出了貢獻。
-用 'contributors()' 來看詳細的情況並且
-用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+  Natural language support but running in an English locale
 
-用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
-用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
-用 'q()' 離開 R。
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
 
 [Previously saved workspace restored]
 
@@ -85,9 +88,8 @@ The following object is masked from ‘package:BiocGenerics’:
     plotMA
 
 
-
 Welcome to RNASeqR
-> RNASeqGoKegg(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/', OrgDb.species = 'org.Sc.sgd.db', go.level = 3, input.TYPE.ID = 'GENENAME', KEGG.organism = 'sce')
+> RNASeqGoKegg(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/', OrgDb.species = 'org.Sc.sgd.db', go.level = 3, input.TYPE.ID = 'GENENAME', KEGG.organism = 'sce')
 ⚜♜♜♜ RNASeqGoKegg()' environment pre-check ...
 
 (✔) : RNASeqGoKegg() pre-check is valid
@@ -224,7 +226,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01230, 1/1 pathways..
 Info: Downloading png files for sce01230, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
 Info: Writing image file sce01230.pathview.png
           ● Finding 'sce01110' KEGG URL ... 
 
@@ -236,7 +238,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01110, 1/1 pathways..
 Info: Downloading png files for sce01110, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
 Info: Writing image file sce01110.pathview.png
           ● Finding 'sce01130' KEGG URL ... 
 
@@ -248,7 +250,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01130, 1/1 pathways..
 Info: Downloading png files for sce01130, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
 Info: Writing image file sce01130.pathview.png
           ● Finding 'sce00220' KEGG URL ... 
 
@@ -260,7 +262,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00220, 1/1 pathways..
 Info: Downloading png files for sce00220, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
 Info: Writing image file sce00220.pathview.png
           ● Finding 'sce00400' KEGG URL ... 
 
@@ -272,68 +274,8 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00400, 1/1 pathways..
 Info: Downloading png files for sce00400, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
 Info: Writing image file sce00400.pathview.png
-          ● Finding 'sce01210' KEGG URL ... 
-
-               ● Writting 'URL_sce01210_Pathway.txt' 
-
-               ● Plotting 'sce01210' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce01210, 1/1 pathways..
-Info: Downloading png files for sce01210, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
-Info: Writing image file sce01210.pathview.png
-          ● Finding 'sce00300' KEGG URL ... 
-
-               ● Writting 'URL_sce00300_Pathway.txt' 
-
-               ● Plotting 'sce00300' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00300, 1/1 pathways..
-Info: Downloading png files for sce00300, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
-Info: Writing image file sce00300.pathview.png
-          ● Finding 'sce00270' KEGG URL ... 
-
-               ● Writting 'URL_sce00270_Pathway.txt' 
-
-               ● Plotting 'sce00270' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00270, 1/1 pathways..
-Info: Downloading png files for sce00270, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
-Info: Writing image file sce00270.pathview.png
-          ● Finding 'sce00250' KEGG URL ... 
-
-               ● Writting 'URL_sce00250_Pathway.txt' 
-
-               ● Plotting 'sce00250' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00250, 1/1 pathways..
-Info: Downloading png files for sce00250, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
-Info: Writing image file sce00250.pathview.png
-          ● Finding 'sce00290' KEGG URL ... 
-
-               ● Writting 'URL_sce00290_Pathway.txt' 
-
-               ● Plotting 'sce00290' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00290, 1/1 pathways..
-Info: Downloading png files for sce00290, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/ballgown_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
-Info: Writing image file sce00290.pathview.png
 ===============================================================
 ===============================================================
 
@@ -357,7 +299,7 @@ Info: Writing image file sce00290.pathview.png
           ● Differential expression gene number : 192
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  856468  852076  853419  ...
 
      ● GO Classification ... 
 
@@ -386,7 +328,7 @@ Info: Writing image file sce00290.pathview.png
           ● Differential expression gene number : 192
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  856468  852076  853419  ...
 
      ● GO Classification ... 
 
@@ -415,7 +357,7 @@ Info: Writing image file sce00290.pathview.png
           ● Differential expression gene number : 192
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  856468  852076  853419  ...
 
      ● GO Classification ... 
 
@@ -460,7 +402,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01230, 1/1 pathways..
 Info: Downloading png files for sce01230, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
 Info: Writing image file sce01230.pathview.png
           ● Finding 'sce01110' KEGG URL ... 
 
@@ -472,7 +414,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01110, 1/1 pathways..
 Info: Downloading png files for sce01110, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
 Info: Writing image file sce01110.pathview.png
           ● Finding 'sce01130' KEGG URL ... 
 
@@ -484,7 +426,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01130, 1/1 pathways..
 Info: Downloading png files for sce01130, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
 Info: Writing image file sce01130.pathview.png
           ● Finding 'sce00220' KEGG URL ... 
 
@@ -496,7 +438,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00220, 1/1 pathways..
 Info: Downloading png files for sce00220, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
 Info: Writing image file sce00220.pathview.png
           ● Finding 'sce00400' KEGG URL ... 
 
@@ -508,68 +450,8 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00400, 1/1 pathways..
 Info: Downloading png files for sce00400, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
 Info: Writing image file sce00400.pathview.png
-          ● Finding 'sce01210' KEGG URL ... 
-
-               ● Writting 'URL_sce01210_Pathway.txt' 
-
-               ● Plotting 'sce01210' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce01210, 1/1 pathways..
-Info: Downloading png files for sce01210, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
-Info: Writing image file sce01210.pathview.png
-          ● Finding 'sce00300' KEGG URL ... 
-
-               ● Writting 'URL_sce00300_Pathway.txt' 
-
-               ● Plotting 'sce00300' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00300, 1/1 pathways..
-Info: Downloading png files for sce00300, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
-Info: Writing image file sce00300.pathview.png
-          ● Finding 'sce00270' KEGG URL ... 
-
-               ● Writting 'URL_sce00270_Pathway.txt' 
-
-               ● Plotting 'sce00270' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00270, 1/1 pathways..
-Info: Downloading png files for sce00270, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
-Info: Writing image file sce00270.pathview.png
-          ● Finding 'sce00250' KEGG URL ... 
-
-               ● Writting 'URL_sce00250_Pathway.txt' 
-
-               ● Plotting 'sce00250' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00250, 1/1 pathways..
-Info: Downloading png files for sce00250, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
-Info: Writing image file sce00250.pathview.png
-          ● Finding 'sce00290' KEGG URL ... 
-
-               ● Writting 'URL_sce00290_Pathway.txt' 
-
-               ● Plotting 'sce00290' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00290, 1/1 pathways..
-Info: Downloading png files for sce00290, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/DESeq2_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
-Info: Writing image file sce00290.pathview.png
 ===============================================================
 ===============================================================
 
@@ -590,10 +472,10 @@ Info: Writing image file sce00290.pathview.png
 
      ● Checking differential expression gene number ... 
 
-          ● Differential expression gene number : 194
+          ● Differential expression gene number : 193
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  851215  856468  852076  ...
 
      ● GO Classification ... 
 
@@ -619,10 +501,10 @@ Info: Writing image file sce00290.pathview.png
 
      ● Checking differential expression gene number ... 
 
-          ● Differential expression gene number : 194
+          ● Differential expression gene number : 193
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  851215  856468  852076  ...
 
      ● GO Classification ... 
 
@@ -634,7 +516,7 @@ Info: Writing image file sce00290.pathview.png
 
      ● GO Over-representation Test ... 
 
-          ● (✔) GO over-representation test (BP) enriched term found : 118
+          ● (✔) GO over-representation test (BP) enriched term found : 119
 
                ● Writing 'GO_BP_Overrepresentation.csv' 
 
@@ -648,10 +530,10 @@ Info: Writing image file sce00290.pathview.png
 
      ● Checking differential expression gene number ... 
 
-          ● Differential expression gene number : 194
+          ● Differential expression gene number : 193
 
      Found ENTREZID gene ID :
-              851384  852226  854711  854714  852076  853357  ...
+              856147  854850  854714  851215  856468  852076  ...
 
      ● GO Classification ... 
 
@@ -676,7 +558,7 @@ Info: Writing image file sce00290.pathview.png
 'select()' returned 1:many mapping between keys and columns
 ● Checking differential expression gene number ... 
 
-     ● Differential expression gene number : 196
+     ● Differential expression gene number : 195
 
 ● KEGG Over-representation Test ... 
 
@@ -696,7 +578,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01230, 1/1 pathways..
 Info: Downloading png files for sce01230, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01230/pathview_result
 Info: Writing image file sce01230.pathview.png
           ● Finding 'sce01110' KEGG URL ... 
 
@@ -708,7 +590,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01110, 1/1 pathways..
 Info: Downloading png files for sce01110, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01110/pathview_result
 Info: Writing image file sce01110.pathview.png
           ● Finding 'sce01130' KEGG URL ... 
 
@@ -720,7 +602,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce01130, 1/1 pathways..
 Info: Downloading png files for sce01130, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01130/pathview_result
 Info: Writing image file sce01130.pathview.png
           ● Finding 'sce00220' KEGG URL ... 
 
@@ -732,7 +614,7 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00220, 1/1 pathways..
 Info: Downloading png files for sce00220, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00220/pathview_result
 Info: Writing image file sce00220.pathview.png
           ● Finding 'sce00400' KEGG URL ... 
 
@@ -744,68 +626,8 @@ Info: Getting gene ID data from KEGG...
 Info: Done with data retrieval!
 Info: Downloading xml files for sce00400, 1/1 pathways..
 Info: Downloading png files for sce00400, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
+Info: Working in directory /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00400/pathview_result
 Info: Writing image file sce00400.pathview.png
-          ● Finding 'sce01210' KEGG URL ... 
-
-               ● Writting 'URL_sce01210_Pathway.txt' 
-
-               ● Plotting 'sce01210' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce01210, 1/1 pathways..
-Info: Downloading png files for sce01210, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce01210/pathview_result
-Info: Writing image file sce01210.pathview.png
-          ● Finding 'sce00300' KEGG URL ... 
-
-               ● Writting 'URL_sce00300_Pathway.txt' 
-
-               ● Plotting 'sce00300' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00300, 1/1 pathways..
-Info: Downloading png files for sce00300, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00300/pathview_result
-Info: Writing image file sce00300.pathview.png
-          ● Finding 'sce00270' KEGG URL ... 
-
-               ● Writting 'URL_sce00270_Pathway.txt' 
-
-               ● Plotting 'sce00270' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00270, 1/1 pathways..
-Info: Downloading png files for sce00270, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00270/pathview_result
-Info: Writing image file sce00270.pathview.png
-          ● Finding 'sce00250' KEGG URL ... 
-
-               ● Writting 'URL_sce00250_Pathway.txt' 
-
-               ● Plotting 'sce00250' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00250, 1/1 pathways..
-Info: Downloading png files for sce00250, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00250/pathview_result
-Info: Writing image file sce00250.pathview.png
-          ● Finding 'sce00290' KEGG URL ... 
-
-               ● Writting 'URL_sce00290_Pathway.txt' 
-
-               ● Plotting 'sce00290' pathway by package "pathview" 
-
-Info: Getting gene ID data from KEGG...
-Info: Done with data retrieval!
-Info: Downloading xml files for sce00290, 1/1 pathways..
-Info: Downloading png files for sce00290, 1/1 pathways..
-Info: Working in directory /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_results/edgeR_analysis/KEGG_analysis/KEGG_DE_Overrepresentation/sce00290/pathview_result
-Info: Writing image file sce00290.pathview.png
 ===============================================================
 ===============================================================
 
@@ -825,4 +647,4 @@ There were 50 or more warnings (use warnings() to see the first 50)
 > 
 > proc.time()
     user   system  elapsed 
-3837.376  296.482 4185.724 
+3144.322  289.702 3477.461 

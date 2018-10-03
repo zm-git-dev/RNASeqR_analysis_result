@@ -1,38 +1,38 @@
 * Creating Hisat2 Index : 
-    command : extract_splice_sites.py /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.ss
-    command : extract_exons.py /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.exon
-    command : hisat2-build --ss Saccharomyces_cerevisiae.ss --exon Saccharomyces_cerevisiae.exon /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa Saccharomyces_cerevisiae_tran
+    command : extract_splice_sites.py /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.ss
+    command : extract_exons.py /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf > Saccharomyces_cerevisiae.exon
+    command : hisat2-build --ss Saccharomyces_cerevisiae.ss --exon Saccharomyces_cerevisiae.exon /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/ref_genome/Saccharomyces_cerevisiae.fa Saccharomyces_cerevisiae_tran
 
 
 * Hisat2 Alignment : 
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396381_1.fastq.gz -2 raw_fastq.gz/SRR3396381_2.fastq.gz -S raw_sam/SRR3396381.sam
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396382_1.fastq.gz -2 raw_fastq.gz/SRR3396382_2.fastq.gz -S raw_sam/SRR3396382.sam
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396384_1.fastq.gz -2 raw_fastq.gz/SRR3396384_2.fastq.gz -S raw_sam/SRR3396384.sam
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396385_1.fastq.gz -2 raw_fastq.gz/SRR3396385_2.fastq.gz -S raw_sam/SRR3396385.sam
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396386_1.fastq.gz -2 raw_fastq.gz/SRR3396386_2.fastq.gz -S raw_sam/SRR3396386.sam
-    command : hisat2 -p 20 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396387_1.fastq.gz -2 raw_fastq.gz/SRR3396387_2.fastq.gz -S raw_sam/SRR3396387.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396381_1.fastq.gz -2 raw_fastq.gz/SRR3396381_2.fastq.gz -S raw_sam/SRR3396381.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396382_1.fastq.gz -2 raw_fastq.gz/SRR3396382_2.fastq.gz -S raw_sam/SRR3396382.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396384_1.fastq.gz -2 raw_fastq.gz/SRR3396384_2.fastq.gz -S raw_sam/SRR3396384.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396385_1.fastq.gz -2 raw_fastq.gz/SRR3396385_2.fastq.gz -S raw_sam/SRR3396385.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396386_1.fastq.gz -2 raw_fastq.gz/SRR3396386_2.fastq.gz -S raw_sam/SRR3396386.sam
+    command : hisat2 -p 10 --dta -x indices/Saccharomyces_cerevisiae_tran  -1 raw_fastq.gz/SRR3396387_1.fastq.gz -2 raw_fastq.gz/SRR3396387_2.fastq.gz -S raw_sam/SRR3396387.sam
 
 
-* Rsamtools Converting '.sam' to '.bam' : 
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396381.bam
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396382.bam
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396384.bam
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396385.bam
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396386.bam
-/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_bam/SRR3396387.bam
+* SAMtools Converting '.sam' to '.bam' : 
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396381.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396381.sam
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396382.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396382.sam
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396384.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396384.sam
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396385.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396385.sam
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396386.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396386.sam
+    command : samtools sort -@ 10 -o /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_bam/SRR3396387.bam /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_sam/SRR3396387.sam
 
 
 * Stringtie assembly : 
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396381.gtf -l SRR3396381 raw_bam/SRR3396381.bam
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396382.gtf -l SRR3396382 raw_bam/SRR3396382.bam
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396384.gtf -l SRR3396384 raw_bam/SRR3396384.bam
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396385.gtf -l SRR3396385 raw_bam/SRR3396385.bam
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396386.gtf -l SRR3396386 raw_bam/SRR3396386.bam
-    command : stringtie -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396387.gtf -l SRR3396387 raw_bam/SRR3396387.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396381.gtf -l SRR3396381 raw_bam/SRR3396381.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396382.gtf -l SRR3396382 raw_bam/SRR3396382.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396384.gtf -l SRR3396384 raw_bam/SRR3396384.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396385.gtf -l SRR3396385 raw_bam/SRR3396385.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396386.gtf -l SRR3396386 raw_bam/SRR3396386.bam
+    command : stringtie -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o raw_gtf/SRR3396387.gtf -l SRR3396387 raw_bam/SRR3396387.bam
 
 
 * Stringtie Merging Transcripts : 
-    command : stringtie --merge -p 20 -G ref_genes/Saccharomyces_cerevisiae.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
+    command : stringtie --merge -p 10 -G ref_genes/Saccharomyces_cerevisiae.gtf -o merged/stringtie_merged.gtf merged/mergelist.txt
 
 
 * Gffcompare Comparing 
@@ -41,19 +41,18 @@ Transcripts between Merged and Reference :
 
 
 * Stringtie Creating Table count for Ballgown : 
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396381/SRR3396381.gtf -A gene_abundance/SRR3396381/SRR3396381.tsv raw_bam/SRR3396381.bam
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396382/SRR3396382.gtf -A gene_abundance/SRR3396382/SRR3396382.tsv raw_bam/SRR3396382.bam
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396384/SRR3396384.gtf -A gene_abundance/SRR3396384/SRR3396384.tsv raw_bam/SRR3396384.bam
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396385/SRR3396385.gtf -A gene_abundance/SRR3396385/SRR3396385.tsv raw_bam/SRR3396385.bam
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396386/SRR3396386.gtf -A gene_abundance/SRR3396386/SRR3396386.tsv raw_bam/SRR3396386.bam
-    command : stringtie -e -B -p 20 -G merged/stringtie_merged.gtf -o ballgown/SRR3396387/SRR3396387.gtf -A gene_abundance/SRR3396387/SRR3396387.tsv raw_bam/SRR3396387.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396381/SRR3396381.gtf -A gene_abundance/SRR3396381/SRR3396381.tsv raw_bam/SRR3396381.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396382/SRR3396382.gtf -A gene_abundance/SRR3396382/SRR3396382.tsv raw_bam/SRR3396382.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396384/SRR3396384.gtf -A gene_abundance/SRR3396384/SRR3396384.tsv raw_bam/SRR3396384.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396385/SRR3396385.gtf -A gene_abundance/SRR3396385/SRR3396385.tsv raw_bam/SRR3396385.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396386/SRR3396386.gtf -A gene_abundance/SRR3396386/SRR3396386.tsv raw_bam/SRR3396386.bam
+    command : stringtie -e -B -p 10 -G merged/stringtie_merged.gtf -o ballgown/SRR3396387/SRR3396387.gtf -A gene_abundance/SRR3396387/SRR3396387.tsv raw_bam/SRR3396387.bam
 
 
-* Installing 'prepDE.py' : 
-    Using R function : 'download.file()' is called.
+    Using R function: 'system.file()' to load 'prepDE.py'
 
 
 * Creating Gene and Transcript Raw Count File : 
-    command : python /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/yeast_software_package/yeast_result/gene_data/reads_count_matrix/sample_lst.txt
+    command : python /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/reads_count_matrix/prepDE.py -i /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/reads_count_matrix/sample_lst.txt
 
 

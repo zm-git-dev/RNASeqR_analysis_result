@@ -1,16 +1,4 @@
-# *Saccharomyces cerevisiae* 
-
-<img src="https://i.imgur.com/cvAtbAY.png" width="4%"> [**Saccharomyces cerevisiae**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
- * GEO        : GSE80357
- * BioProject : PRJNA318684
- * SRA        : SRP073391
- * Sample     : **amphotericin_B (0.03 µg/mL)** vs **control**
-
----
-
-&#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
-
-```
+.
 ├── ballgown
 │   ├── SRR3396381
 │   │   ├── e2t.ctab
@@ -90,17 +78,11 @@
 ├── phenodata.csv -> /work171/kuan-hao/yeast_software_package/input_files/phenodata.csv
 ├── raw_bam
 │   ├── SRR3396381.bam
-│   ├── SRR3396381.bam.bai
 │   ├── SRR3396382.bam
-│   ├── SRR3396382.bam.bai
 │   ├── SRR3396384.bam
-│   ├── SRR3396384.bam.bai
 │   ├── SRR3396385.bam
-│   ├── SRR3396385.bam.bai
 │   ├── SRR3396386.bam
-│   ├── SRR3396386.bam.bai
-│   ├── SRR3396387.bam
-│   └── SRR3396387.bam.bai
+│   └── SRR3396387.bam
 ├── raw_fastq.gz
 │   ├── SRR3396381_1.fastq.gz -> /work171/kuan-hao/yeast_software_package/input_files/raw_fastq.gz/SRR3396381_1.fastq.gz
 │   ├── SRR3396381_2.fastq.gz -> /work171/kuan-hao/yeast_software_package/input_files/raw_fastq.gz/SRR3396381_2.fastq.gz
@@ -139,5 +121,4 @@
 │   └── Saccharomyces_cerevisiae.fa -> /work171/kuan-hao/yeast_software_package/input_files/Saccharomyces_cerevisiae.fa
 └── RNASeqRParam.rds
 
-23 directories, 104 files
-```
+23 directories, 98 files

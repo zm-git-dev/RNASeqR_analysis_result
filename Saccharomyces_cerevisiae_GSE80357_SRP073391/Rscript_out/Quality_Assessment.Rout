@@ -3,17 +3,21 @@ R version 3.5.0 (2018-04-23) -- "Joy in Playing"
 Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
-R 是免費軟體，不提供任何擔保。
-在某些條件下您可以將其自由散布。
-用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
 
-R 是個合作計劃，有許多人為之做出了貢獻。
-用 'contributors()' 來看詳細的情況並且
-用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+  Natural language support but running in an English locale
 
-用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
-用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
-用 'q()' 離開 R。
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
 
 > library(RNASeqR)
 Loading required package: ggplot2
@@ -85,19 +89,19 @@ The following object is masked from ‘package:BiocGenerics’:
 
 
 Welcome to RNASeqR
-> RNASeqQualityAssessment(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/')
+> RNASeqQualityAssessment(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/')
 ⚜♜♜♜ 'RNASeqQualityAssessment()' environment pre-check ...
 
 ************** Checking Availability of Commands ************
 
 ************** Adding PATH to R environment ************
 
-➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin
 
 
 ●  Checking hisat2 command
 
-/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/hisat2-align-s version 2.1.0
+/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/hisat2-align-s version 2.1.0
 64-bit
 Built on login-node03
 Wed Jun  7 15:53:42 EDT 2017
@@ -151,5 +155,5 @@ gffcompare v0.10.4
 
 > 
 > proc.time()
-   user  system elapsed 
-725.541  26.506 774.338 
+    user   system  elapsed 
+ 944.761   50.782 2696.791 

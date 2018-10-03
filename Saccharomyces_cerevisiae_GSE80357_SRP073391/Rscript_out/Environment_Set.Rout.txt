@@ -3,17 +3,19 @@ R version 3.5.0 (2018-04-23) -- "Joy in Playing"
 Copyright (C) 2018 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
-R 是免費軟體，不提供任何擔保。
-在某些條件下您可以將其自由散布。
-用 'license()' 或 'licence()' 來獲得散布的詳細條件。
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
 
-R 是個合作計劃，有許多人為之做出了貢獻。
-用 'contributors()' 來看詳細的情況並且
-用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+  Natural language support but running in an English locale
 
-用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
-用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
-用 'q()' 離開 R。
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
 
 [Previously saved workspace restored]
 
@@ -87,7 +89,7 @@ The following object is masked from ‘package:BiocGenerics’:
 
 
 Welcome to RNASeqR
-> RNASeqEnvironmentSet(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/yeast_result/', install.hisat2 = TRUE, install.stringtie = TRUE, install.gffcompare = TRUE)
+> RNASeqEnvironmentSet(RNASeqRParam = 'INSIDE', which.trigger = 'INSIDE', INSIDE.path.prefix = '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/', install.hisat2 = TRUE, install.stringtie = TRUE, install.gffcompare = TRUE)
 ⚜♜♜♜ RNASeqEnvironmentSet()' environment pre-check ...
 
 (✔) : RNASeqEnvironmentSet() pre-check is valid
@@ -97,19 +99,19 @@ Welcome to RNASeqR
 
      ● Copying From :/work171/kuan-hao/yeast_software_package/input_files/Saccharomyces_cerevisiae.gtf
 
-     ●           To :/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf
+     ●           To :/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/ref_genes/Saccharomyces_cerevisiae.gtf
 
      ● Copying From :/work171/kuan-hao/yeast_software_package/input_files/Saccharomyces_cerevisiae.fa
 
-     ●           To :/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/ref_genome/Saccharomyces_cerevisiae.fa
+     ●           To :/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/ref_genome/Saccharomyces_cerevisiae.fa
 
      ● Copying From :/work171/kuan-hao/yeast_software_package/input_files/raw_fastq.gz/
 
-     ●           To :/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/raw_fastq.gz/
+     ●           To :/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/raw_fastq.gz/
 
      ● Copying From :/work171/kuan-hao/yeast_software_package/input_files/phenodata.csv
 
-     ●           To :/work171/kuan-hao/yeast_software_package/yeast_result/gene_data/phenodata.csv
+     ●           To :/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/gene_data/phenodata.csv
 
 
 
@@ -117,18 +119,18 @@ Welcome to RNASeqR
 
    ☞☞ ●'hisat2' ●'stringtie' ●'gffcompare' will be installed. ... 
 
-   ☞☞  Compressed files will be in '/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Download/'
+   ☞☞  Compressed files will be in '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Download/'
 
-   ☞☞  Unpacked files will be in '/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/'
+   ☞☞  Unpacked files will be in '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/'
 
-   ☞☞  Binary files will be copied to '/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/'
+   ☞☞  Binary files will be copied to '/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/'
 
 
 ☘☘ Hisat2 processing ...
 
 ************** Installing Hisat2 (hisat2-2.1.0-Linux_x86_64.zip) ************
 
-嘗試 URL 'ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.1.0-Linux_x86_64.zip'
+trying URL 'ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.1.0-Linux_x86_64.zip'
 Content type 'unknown' length 27104162 bytes (25.8 MB)
 ==================================================
 HISAT2 binaries were downloaded successfully!!
@@ -136,137 +138,137 @@ HISAT2 binaries were downloaded successfully!!
 
 ************** Unpacking Hisat2 (hisat2-2.1.0-Linux_x86_64.zip) ************
 
-Archive:  /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Download/hisat2-2.1.0-Linux_x86_64.zip
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-l  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_build_genome.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_extract_vars.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_extract_reads.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_snps_haplotypes_VCF.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/AUTHORS  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/style.css  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/manual.inc.html  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/README  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-s-debug  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/extract_splice_sites.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_assembly_graph.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_typing_common.py  
- extracting: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/__init__.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_extract_cyp_data.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_extract_codis_data.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_convert_codis.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_gene_typing.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-s-debug  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-s-debug  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/MANUAL  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-l  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-s  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_hla_cyp.py  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_wbcel235_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_b_taurus_UMD3.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rn4.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp_tran_ercc.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg19.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_bdgp6_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rn6.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_snp_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_wbcel235.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_canFam2.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_e_coli.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_dm6.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rnor6.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_snp_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_a_thaliana_tair.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_2b_occ_lookup.pl  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_bdgp6.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_mm9.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_snp.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_mm10.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/infer_fraglen.pl  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_allsnp.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_occ_lookup.pl  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_ce10.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_snp.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_solqual_lookup.pl  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp_tran_ercc.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_sc3.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_zm3_snp_tran_ercc.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rnor6_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_r64.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_r64_tran.sh  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/convert_quals.pl  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-l-debug  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/TUTORIAL  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/extract_exons.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-s  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-l-debug  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/extract_Omixon_HLA.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/hisatgenotype_HLA_genotyping_PGs.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/compare_HLA_Omixon.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/hisatgenotype_locus_samples.py  
- extracting: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/VERSION  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_simulate_reads.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-l-debug  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-l  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/NEWS  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-s  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/LICENSE  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_locus.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_exons.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_splice_sites.py  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/MANUAL.markdown  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.2.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.5.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.4.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.3.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.7.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.6.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.1.ht2  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.8.ht2  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/22_20-21M.fa  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/22_20-21M.snp  
-   creating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/reads_1.fa  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/reads_2.fa  
-  inflating: /work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_snps_haplotypes_UCSC.py  
+Archive:  /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Download/hisat2-2.1.0-Linux_x86_64.zip
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-l  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_build_genome.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_extract_vars.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_extract_reads.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_snps_haplotypes_VCF.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/AUTHORS  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/style.css  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/manual.inc.html  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/doc/README  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-s-debug  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/extract_splice_sites.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_assembly_graph.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_typing_common.py  
+ extracting: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/__init__.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_extract_cyp_data.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_extract_codis_data.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_convert_codis.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_modules/hisatgenotype_gene_typing.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-s-debug  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-s-debug  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/MANUAL  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-l  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-s  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_hla_cyp.py  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_wbcel235_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_b_taurus_UMD3.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rn4.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp_tran_ercc.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg19.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_bdgp6_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rn6.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_snp_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_wbcel235.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_canFam2.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_e_coli.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_dm6.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_snp.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rnor6.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_snp_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_a_thaliana_tair.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch37_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_2b_occ_lookup.pl  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_bdgp6.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_mm9.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_snp.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_mm10.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/infer_fraglen.pl  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38_allsnp.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_hg38.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_occ_lookup.pl  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_ce10.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grcm38_snp.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/gen_solqual_lookup.pl  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38_snp_tran_ercc.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_sc3.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_zm3_snp_tran_ercc.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_grch38.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_rnor6_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_r64.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/make_r64_tran.sh  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/scripts/convert_quals.pl  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-l-debug  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/TUTORIAL  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/extract_exons.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-s  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-inspect-l-debug  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/extract_Omixon_HLA.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/hisatgenotype_HLA_genotyping_PGs.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/compare_HLA_Omixon.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_scripts/hisatgenotype_locus_samples.py  
+ extracting: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/VERSION  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_simulate_reads.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-l-debug  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-build-l  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/NEWS  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2-align-s  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/LICENSE  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisatgenotype_locus.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_exons.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_splice_sites.py  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/MANUAL.markdown  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.2.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.5.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.4.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.3.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.7.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.6.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.1.ht2  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/index/22_20-21M_snp.8.ht2  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/22_20-21M.fa  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reference/22_20-21M.snp  
+   creating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/reads_1.fa  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/example/reads/reads_2.fa  
+  inflating: /work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/hisat2_extract_snps_haplotypes_UCSC.py  
 hisat2 binaries
 
 
 
 ************** Moving Hisat2 Binary ************
 
-'/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Download/hisat2-2.1.0-Linux_x86_64.zip' has been installed.
+'/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Download/hisat2-2.1.0-Linux_x86_64.zip' has been installed.
 
-Hisat2 has been unpacked. ('/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/hisat2-2.1.0/')
+Hisat2 has been unpacked. ('/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/hisat2-2.1.0/')
 
 
 ☘☘ Stringtie processing ...
 
 ************** Installing stringtie (stringtie-1.3.4d.Linux_x86_64.tar.gz) ************
 
-嘗試 URL 'http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.3.4d.Linux_x86_64.tar.gz'
+trying URL 'http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.3.4d.Linux_x86_64.tar.gz'
 Content type 'application/x-gzip' length 1440390 bytes (1.4 MB)
 ==================================================
 downloaded 1.4 MB
@@ -279,16 +281,16 @@ StringTie binaries were downloaded successfully!!
 
 ************** Moving stringtie Binary ************
 
-'/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Download/stringtie-1.3.4d.Linux_x86_64.tar.gz' has been installed.
+'/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Download/stringtie-1.3.4d.Linux_x86_64.tar.gz' has been installed.
 
-StringTie has been unpacked. ('/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/stringtie-1.3.4d.Linux_x86_64')
+StringTie has been unpacked. ('/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/stringtie-1.3.4d.Linux_x86_64')
 
 
 ☘☘ Gffcompare processing ...
 
 ************** Installing gffcompare (gffcompare-0.10.4.Linux_x86_64.tar.gz) ************
 
-嘗試 URL 'http://ccb.jhu.edu/software/stringtie/dl/gffcompare-0.10.4.Linux_x86_64.tar.gz'
+trying URL 'http://ccb.jhu.edu/software/stringtie/dl/gffcompare-0.10.4.Linux_x86_64.tar.gz'
 Content type 'application/x-gzip' length 280135 bytes (273 KB)
 ==================================================
 downloaded 273 KB
@@ -301,14 +303,14 @@ Gffcompare binaries were downloaded successfully!!
 
 ************** Moving gffcompare Binary ************
 
-'/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Download/gffcompare-0.10.4.Linux_x86_64.tar.gz' has been installed.
+'/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Download/gffcompare-0.10.4.Linux_x86_64.tar.gz' has been installed.
 
-Gffcompare has been unpacked. ('/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/Unpacked/gffcompare-0.10.4.Linux_x86_64')
+Gffcompare has been unpacked. ('/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/Unpacked/gffcompare-0.10.4.Linux_x86_64')
 
 
 ************** Adding PATH to R environment ************
 
-➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin
 
 
 ⚜♜♜♜ RNASeqEnvironmentSet()' environment post-check ...
@@ -317,12 +319,12 @@ Gffcompare has been unpacked. ('/work171/kuan-hao/yeast_software_package/yeast_r
 
 ************** Adding PATH to R environment ************
 
-➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin:/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin
+➤➤ R environment 'PATH' : /usr/local/bin:/work171/kuan-hao/miniconda3/envs/rnaseq/bin:/home/kuan-hao/.rbenv/shims:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/work171/kuan-hao/.rbenv/bin:/work171/kuan-hao/R/bin:/work171/kuan-hao/zlib/lib:/work171/kuan-hao/miniconda3/bin:/work171/kuan-hao/sratoolkit.2.9.2-centos_linux64/bin:/tempwork171/kuan-hao/miniconda3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/tempwork171/kuan-hao/gene_data/data/ftp.ccb.jhu.edu/pub/bin:/tempwork171/kuan-hao/miniconda3/bin:/home/kuan-hao/bin:/tempwork171/kuan-hao/bin/sratoolkit.2.9.0-centos_linux64/bin:/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin:/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin
 
 
 ●  Checking hisat2 command
 
-/work171/kuan-hao/yeast_software_package/yeast_result/RNASeq_bin/hisat2-align-s version 2.1.0
+/work171/kuan-hao/yeast_software_package/amphotericin_B_vs_control/RNASeq_bin/hisat2-align-s version 2.1.0
 64-bit
 Built on login-node03
 Wed Jun  7 15:53:42 EDT 2017
@@ -353,8 +355,7 @@ gffcompare v0.10.4
 
 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
-There were 15 warnings (use warnings() to see them)
 > 
 > proc.time()
    user  system elapsed 
- 24.762   1.288 124.614 
+ 36.478   1.655 177.740 
