@@ -8,6 +8,11 @@
 
 ---
 
+
+&#9758; **/[Home_page](https://howardchao.github.io/RNASeqR_analysis_result/)/[Saccharomyces_cerevisiae_GSE80357_SRP073391](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)/[Rscript_out](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/Rscript_out/)**
+
+&nbsp;
+
 &#8617; [**.\./**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/)
 
 <img src="https://i.imgur.com/HIvCfTh.png" width="2.5%">  [**Environment_Set.Rout**](https://howardchao.github.io/RNASeqR_analysis_result/Saccharomyces_cerevisiae_GSE80357_SRP073391/Rscript_out/Environment_Set.Rout.txt)
