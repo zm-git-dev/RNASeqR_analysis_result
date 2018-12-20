@@ -1,3 +1,4 @@
+```
 .
 ├── Download
 │   ├── gffcompare-0.10.4.Linux_x86_64.tar.gz
@@ -155,5 +156,4 @@
         ├── LICENSE
         ├── README
         └── stringtie
-
-13 directories, 143 files
+```
